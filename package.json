@@ -1,0 +1,14 @@
+{
+  "name": "Dram",
+  "version": "0.0.1",
+  "devDependencies": {
+    "express": "^4.13.4",
+    "grunt-contrib-jade": "^0.14.1",
+    "grunt-contrib-sass": "^0.9.2",
+    "grunt-contrib-watch": "^0.6.1",
+    "jquery": "^2.2.1",
+    "load-grunt-tasks": "^3.1.0",
+    "node-static": "^0.7.7",
+    "xml2js": "^0.4.16"
+  }
+}

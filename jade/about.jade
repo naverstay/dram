@@ -1,0 +1,25 @@
+include mixins
+doctype html
+html(lang='ru')
+  +dev_head('Dram about', false, true)
+
+  body
+    .wrapper
+      //.rect_1024
+      +header(1)
+      
+      .base
+        +about_hero()
+        
+        div.main_content
+          .section_inner
+            .tabBlock(data-tab-context='#filter_list')
+              #filter_tab_1
+                +about_theatre()
+              #filter_tab_2
+                +about_people()
+              #filter_tab_3
+                +about_vacancy()
+            
+
+      +footer()

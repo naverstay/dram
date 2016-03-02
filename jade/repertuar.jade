@@ -1,0 +1,22 @@
+include mixins
+doctype html
+html(lang='ru')
+  +dev_head('Dram repertuar', false, false, false, false, false, false, true)
+
+  body
+    .wrapper
+      //.rect_1024
+      +header(3)
+      
+      .base
+        +repertuar_hero()
+        
+        div.main_content
+          .section_inner: .news_block.blog_mod
+            .tabBlock(data-tab-context='#filter_list')
+              #filter_tab_1.filterParent
+                +repertuar(1)
+              #filter_tab_2.filterParent
+                +repertuar(2)
+                
+      +footer()

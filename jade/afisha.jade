@@ -1,0 +1,62 @@
+include mixins
+doctype html
+html(lang='ru')
+  +dev_head('Dram afisha', false, false, false, false, false, false, false, false, false, false, true)
+
+  body
+    .wrapper
+      +header(2)
+      
+      .base
+        +news_hero(3)
+
+        div.main_content
+          .section_inner: .news_block.blog_mod.filterParent
+            .swiper-container.filterSlider.filter_w
+              ul.people_filter_list.swiper-wrapper
+                li.people_filter_item.swiper-slide.active: a.gl_link.filterBtn(href='#' data-filter='*') Все
+                li.people_filter_item.swiper-slide: a.gl_link.filterBtn(href='#' data-filter='.big') Большая сцена 
+                li.people_filter_item.swiper-slide: a.gl_link.filterBtn(href='#' data-filter='.small') Малая сцена
+                li.people_filter_item.swiper-slide: a.gl_link.filterBtn(href='#' data-filter='.child') Детские
+                li.people_filter_item.swiper-slide: a.gl_link.filterBtn(href='#' data-filter='.concert') Концерты
+                li.people_filter_item.swiper-slide: a.gl_link.filterBtn(href='#' data-filter='.tour') Гастроли
+                
+            +aside_calendar()
+            .content_block: ul.blog_list.blogList
+              li.blog_unit.small
+                a.blog_img(href='#'): img(src='i/blog/blog_1.jpg')
+                .news_title_holder
+                  .news_date(datetime="2012-08-08T11:19") 8 августа I суббота I 21:00 I малая сцена
+                  h2.news_title: a.gl_link.inherit_link(href='#') Фотообзор  репетиции                 Спектакля “Тризор”
+                .news_text: p Спектакль "Женитьба Бальзаминова" отличается своей современностью и актуальностью. Остроумный, ироничный текст А. Н. Островского, большого знатока человеческой природы и человеческих нравов, давно разобран на цитаты. Актеры представят историю
+              
+              li.blog_unit.concert
+                a.blog_img(href='#'): img(src='i/blog/blog_1.jpg')
+                .news_title_holder
+                  .news_date(datetime="2012-08-08T11:19") 8 августа I суббота I 21:00 I малая сцена
+                  h2.news_title: a.gl_link.inherit_link(href='#') Фотообзор  репетиции                 Спектакля “Тризор”
+                .news_text: p Спектакль "Женитьба Бальзаминова" отличается своей современностью и актуальностью. Остроумный, ироничный текст А. Н. Островского, большого знатока человеческой природы и человеческих нравов, давно разобран на цитаты. Актеры представят историю
+              
+              li.blog_unit.tour
+                a.blog_img(href='#'): img(src='i/blog/blog_1.jpg')
+                .news_title_holder
+                  .news_date(datetime="2012-08-08T11:19") 8 августа I суббота I 21:00 I малая сцена
+                  h2.news_title: a.gl_link.inherit_link(href='#') Фотообзор  репетиции                 Спектакля “Тризор”
+                .news_text: p Спектакль "Женитьба Бальзаминова" отличается своей современностью и актуальностью. Остроумный, ироничный текст А. Н. Островского, большого знатока человеческой природы и человеческих нравов, давно разобран на цитаты. Актеры представят историю
+              
+              +loop_while(2)
+                li.blog_unit.big
+                  a.blog_img(href='#'): img(src='i/blog/blog_1.jpg')
+                  .news_title_holder
+                    .news_date(datetime="2012-08-08T11:19") 8 августа I суббота I 21:00 I малая сцена
+                    h2.news_title: a.gl_link.inherit_link(href='#') Женитьба Бальзаминова
+                  .news_text: p Спектакль "Женитьба Бальзаминова" отличается своей современностью и актуальностью. Остроумный, ироничный текст А. Н. Островского, большого знатока человеческой природы и человеческих нравов, давно разобран на цитаты. Актеры представят историю не слишком умного, но очень практичного молодого человека Миши Бальзаминова редкость и в современном обществе.
+              +loop_while(3)
+                li.blog_unit.child
+                  a.blog_img(href='#'): img(src='i/blog/blog_1.jpg')
+                  .news_title_holder
+                    .news_date(datetime="2012-08-08T11:19") 8 августа I суббота I 21:00 I малая сцена
+                    h2.news_title: a.gl_link.inherit_link(href='#') Фотообзор  репетиции                 Спектакля “Тризор”
+                  .news_text: p Спектакль "Женитьба Бальзаминова" отличается своей современностью и актуальностью. Остроумный, ироничный текст А. Н. Островского, большого знатока человеческой природы и человеческих нравов, давно разобран на цитаты. Актеры представят историю
+
+      +footer()

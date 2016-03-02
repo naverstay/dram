@@ -1,0 +1,84 @@
+include mixins
+doctype html
+html(lang='ru')
+  +dev_head('Dram guests', false, false, false, false, false, false, false, true)
+
+  body
+    .wrapper
+      +header(7)
+      
+      .base
+        +news_hero(2)
+        
+        div.main_content
+          .section_inner
+            .guests_block
+              ul.guests_controls
+                li: a.btn_v1.add_review_btn.red_red_btn.popupBtn(href='#') ОСТАВИТЬ КОМЕНТАРИЙ
+                
+              ul.reviews_list
+                li.review_unit
+                  h3.review_title.openReviewBtn Отзыв о спектакле "Сказка о царе Салтане.."
+                  .review_block
+                    p Красочно и ярко. Все понравилось. Наш театр только радует и оставляет положительные эмоции! Так держать!!!!
+                    .review_author Благодарный зритель
+                  
+                    .review_block
+                      p Красочно и ярко. Все понравилось. Наш театр только радует и оставляет положительные эмоции! Так держать!!!!
+                      .review_author Благодарный зритель / Антон Боровиков
+                        
+                      ul.review_controls
+                        li: a.btn_v1.add_review_btn.red_red_btn(href='#') Коментировать отзыв
+                        
+                li.review_unit
+                  h3.review_title.openReviewBtn Открытие 75-ого сезона - "HAMLET"
+                  .review_block
+                    p Красочно и ярко. Все понравилось. Наш театр только радует и оставляет положительные эмоции! Так держать!!!!
+                    .review_author Благодарный зритель
+                  
+                    .review_block
+                      p Красочно и ярко. Все понравилось. Наш театр только радует и оставляет положительные эмоции! Так держать!!!!
+                      .review_author Благодарный зритель / Антон Боровиков
+                        
+                      ul.review_controls
+                        li: a.btn_v1.add_review_btn.red_red_btn(href='#') Коментировать отзыв
+                        
+                li.review_unit
+                  h3.review_title.openReviewBtn Ждем вас с гастролями в Белгороде!
+                  .review_block
+                    p Красочно и ярко. Все понравилось. Наш театр только радует и оставляет положительные эмоции! Так держать!!!!
+                    .review_author Благодарный зритель
+                  
+                    .review_block
+                      p Красочно и ярко. Все понравилось. Наш театр только радует и оставляет положительные эмоции! Так держать!!!!
+                      .review_author Благодарный зритель / Антон Боровиков
+                        
+                      ul.review_controls
+                        li: a.btn_v1.add_review_btn.red_red_btn(href='#') Коментировать отзыв
+                        
+                li.review_unit
+                  h3.review_title.openReviewBtn Открытие 75-ого сезона - "HAMLET"
+                  .review_block
+                    p Красочно и ярко. Все понравилось. Наш театр только радует и оставляет положительные эмоции! Так держать!!!!
+                    .review_author Благодарный зритель
+                  
+                    .review_block
+                      p Красочно и ярко. Все понравилось. Наш театр только радует и оставляет положительные эмоции! Так держать!!!!
+                      .review_author Благодарный зритель / Антон Боровиков
+                        
+                      ul.review_controls
+                        li: a.btn_v1.add_review_btn.red_red_btn(href='#') Коментировать отзыв
+
+                li.review_unit
+                  h3.review_title.openReviewBtn Ждем вас с гастролями в Белгороде!
+                  .review_block
+                    p Красочно и ярко. Все понравилось. Наш театр только радует и оставляет положительные эмоции! Так держать!!!!
+                    .review_author Благодарный зритель
+                    .review_block
+                      p Красочно и ярко. Все понравилось. Наш театр только радует и оставляет положительные эмоции! Так держать!!!!
+                      .review_author Благодарный зритель / Антон Боровиков
+                      ul.review_controls
+                        li: a.btn_v1.add_review_btn.red_red_btn(href='#') Коментировать отзыв
+                        
+      +footer()
+    +popup()

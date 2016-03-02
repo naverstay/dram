@@ -1,0 +1,47 @@
+include mixins
+doctype html
+html(lang='ru')
+  +dev_head('Dram about', false, false, false, false, false, false, false, false, false, false, false, true)
+
+  body
+    .wrapper
+        
+        div.main_content
+          .section_inner(style='background: red; color: #fff;')
+            .clearfix
+              .popup_form_v1(style='width: 50%; float: left;')
+                .input_w
+                  span lat cell size 
+                  input#lat_size.form_input_v1(value='0.02')
+                span top left
+                .input_w
+                  span lat
+                  input#l_lat.form_input_v1(value_='28' value='37')
+                .input_w
+                  span lon
+                  input#l_lon.form_input_v1(value_='77' value='68')
+                  
+              .popup_form_v1(style='width: 50%; float: left;')
+                .input_w
+                  span lon cell size 
+                  input#lon_size.form_input_v1(value='0.02')
+                span bottom right
+                .input_w
+                  span lat
+                  input#r_lat.form_input_v1(value_='27' value='4')
+                .input_w
+                  span lon
+                  input#r_lon.form_input_v1(value_='78' value='92')
+                  
+              .popup_form_v1(style='width: 50%; float: left;')
+                .input_w.clearfix
+                  button#send_request.white_red_btn.btn_v1.form_btn: span start
+              .popup_form_v1(style='width: 50%; float: left;')
+                .input_w.clearfix
+                  button#stop_request.white_red_btn.btn_v1.form_btn: span stop
+                  
+            .popup_form_v1(style='')
+              .input_w.clearfix
+                span#status(style='float: left;') status
+                span#lines(style='float: right;') lines
+                textarea#result.form_input_v1(style='font-size: 12px')

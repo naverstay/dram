@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Dram about</title><!-- saved from url=(0014)about:internet -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="styles/main_global.css" media="all"/>
+    <!--script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true')-->
+    <script src="js/jquery1.10.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src="js/10swiper.js"></script>
+    <!--script(src='js/css3-mediaqueries.js')-->
+    <script src="js/script.js"></script>
+    <!--script(src='js/open_signal.js')-->
+    <script src="js/get_open_signal.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="main_content">
+        <div style="background: red; color: #fff;" class="section_inner">
+          <div class="clearfix">
+            <div style="width: 50%; float: left;" class="popup_form_v1">
+              <div class="input_w"><span>lat cell size </span>
+                <input id="lat_size" value="0.02" class="form_input_v1">
+              </div><span>top left</span>
+              <div class="input_w"><span>lat</span>
+                <input id="l_lat" value_="28" value="37" class="form_input_v1">
+              </div>
+              <div class="input_w"><span>lon</span>
+                <input id="l_lon" value_="77" value="68" class="form_input_v1">
+              </div>
+            </div>
+            <div style="width: 50%; float: left;" class="popup_form_v1">
+              <div class="input_w"><span>lon cell size </span>
+                <input id="lon_size" value="0.02" class="form_input_v1">
+              </div><span>bottom right</span>
+              <div class="input_w"><span>lat</span>
+                <input id="r_lat" value_="27" value="4" class="form_input_v1">
+              </div>
+              <div class="input_w"><span>lon</span>
+                <input id="r_lon" value_="78" value="92" class="form_input_v1">
+              </div>
+            </div>
+            <div style="width: 50%; float: left;" class="popup_form_v1">
+              <div class="input_w clearfix">
+                <button id="send_request" class="white_red_btn btn_v1 form_btn"><span>start</span></button>
+              </div>
+            </div>
+            <div style="width: 50%; float: left;" class="popup_form_v1">
+              <div class="input_w clearfix">
+                <button id="stop_request" class="white_red_btn btn_v1 form_btn"><span>stop</span></button>
+              </div>
+            </div>
+          </div>
+          <div style="" class="popup_form_v1">
+            <div class="input_w clearfix"><span id="status" style="float: left;">status</span><span id="lines" style="float: right;">lines</span>
+              <textarea id="result" style="font-size: 12px" class="form_input_v1"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

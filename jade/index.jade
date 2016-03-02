@@ -1,0 +1,142 @@
+include mixins
+doctype html
+html(lang='ru')
+  +dev_head('Dram главная', true)
+
+  body
+    .wrapper
+      //.rect_1024
+      +header()
+      
+      .base
+        
+        +main_slider()
+        
+        div.main_content
+          .poster_section: .section_inner
+            .g_row: .poster_table
+              .g_col_d_4.poster_unit
+                .poster_cell: .poster_block
+                  .poster_title_holder
+                    h2.poster_title Афиша 
+                    span.color_red
+                      | (
+                      a.gl_link(href='#') Все
+                      | )
+                  .swiper-container.noSwipe.posterSlider.poster_slider
+                    .swiper-wrapper
+                      +loop_while(4)
+                        .swiper-slide.poster_slide
+                          ul.poster_list
+                            li.poster_item
+                              .poster_date 8 августа I суббота I 21:00 I малая сцена
+                              h3.poster_caption: a.gl_link(href='#') Аделаида и любовь
+                            li.poster_item
+                              .poster_date 8 августа I суббота I 21:00 I малая сцена
+                              h3.poster_caption: a.gl_link(href='#') Шикарная свадьба
+                            li.poster_item
+                              .poster_date 8 августа I суббота I 21:00 I малая сцена
+                              h3.poster_caption: a.gl_link(href='#') Небесный тихоход
+                            li.poster_item
+                              .poster_date 8 августа I суббота I 21:00 I малая сцена
+                              h3.poster_caption: a.gl_link(href='#') Приключения Бонифация
+                              
+                    .swiper-pagination
+                      
+              .g_col_d_4.poster_unit
+                .poster_cell: .poster_block
+                  .poster_title_holder
+                    h2.poster_title НОВОСТИ  
+                    span.color_red
+                      | (
+                      a.gl_link(href='#') Все
+                      | )
+                  .swiper-container.noSwipe.newsSlider.poster_slider
+                    .swiper-wrapper
+                      +loop_while(4)
+                        .swiper-slide.poster_slide
+                          ul.poster_list
+                            li.poster_item
+                              .poster_date 26 августа
+                              h3.poster_caption: a.gl_link(href='#') Изменения в расписании на ноябрь
+                              p Внимани 6 ноября спектакль в 18 часов Детектор лжи цена 1 билета – 50 рублей
+                            li.poster_item
+                              .poster_date 8 августа I суббота I 21:00 I малая сцена
+                              h3.poster_caption: a.gl_link(href='#') Открытие 79 театрального сезона
+                              p Уважаемые друзья! Приглашаем вас на открытие 79-го театрального сезона, 11 октября в 18:00 для вас премьера 
+                            
+                    .swiper-pagination
+  
+              .g_col_d_4.poster_unit
+                .poster_cell: .poster_block.contacts_block
+                  .poster_title_holder
+                    h2.poster_title Контакты  
+                  h3.poster_caption Адресс
+                  p Архангельская обл.  <br> 
+                    | г. Северодвинск ул. Ломоносова 77
+                  
+                  h3.poster_caption Касса
+                  p 8(8184) 54-08-00
+                  p Время работы: 
+                  dl.work_time
+                    dt Понедельник-Пятница 
+                    dd с 14:00 до 21:00
+                    dt Суббота- Воскресенье 
+                    dd с 11:00 до 18:00 
+                  p Обед с 12:00 до 14:00
+                  p Вторник -выходной
+                  a.btn_v1.red_red_btn.poster_btn(href='#') ПОДРОБНЕЕ
+  
+          .visitors_section
+            .section_inner
+              h2.section_title.text_center ПОСЕТИТЕЛЯМ
+              ul.visitors_list
+                li.visitors_item: .visitor_box
+                  .visitors_icon.icon-ticket
+                  a.gl_link(href='visitors.html#filter_tab_1'): span Стоимость  <br>  билетов
+                li.visitors_item: .visitor_box.visitor_box_2
+                  .visitors_icon.icon-keyboard
+                  a.gl_link(href='visitors.html#filter_tab_2'): span Схема залов
+                li.visitors_item: .visitor_box.visitor_box_3
+                  .visitors_icon.icon-notepad
+                  a.gl_link(href='visitors.html#filter_tab_3'): span Правила  <br>посещения
+                  
+                li.visitors_splitter
+                li.visitors_item: .visitor_box.visitor_box_4
+                  .visitors_icon.icon-programms
+                  a.gl_link(href='visitors.html#filter_tab_4'): span Програмки
+                li.visitors_item: .visitor_box.visitor_box_5
+                  .visitors_icon.icon-photo
+                  a.gl_link(href='visitors.html#filter_tab_5'): span Экскурсии
+                li.visitors_item: .visitor_box.visitor_box_6
+                  .visitors_icon.icon-coffee
+                  a.gl_link(href='visitors.html#filter_tab_6'): span Театральный  <br>бар
+
+          .actors_section
+            .section_inner
+              h2.section_title.text_center АКТЕРЫ ТЕАТРА
+              .swiper-container.noSwipe.actorSlider.actor_slider
+                .swiper-wrapper
+                  .swiper-slide: .actor_slide
+                    a.actor_photo(href='actor.html'): img(src='i/index/actor_1.jpg')
+                    .actor_info
+                      p Актриса малой сцены
+                      a.actor_name(href='actor.html') Диана Алиева
+                      p Родилась в Кисловодске. В 2004 г. окончила Музыкальное училище имени Гнесиных, в 2009 г. — Российскую академию музыки имени Гнесиных 
+                  .swiper-slide: .actor_slide
+                    a.actor_photo(href='actor.html'): img(src='i/index/actor_2.jpg')
+                    .actor_info
+                      p Актриса малой сцены
+                      a.actor_name(href='actor.html') Екатерина Головлева
+                      p Родилась в Москве. Начинала творческую карьеру как меццо-сопрано. В 1996 г. окончила Московскую консерваторию имени П.И.Чайковского 
+                  .swiper-slide: .actor_slide
+                    a.actor_photo(href='actor.html'): img(src='i/index/actor_3.jpg')
+                    .actor_info
+                      p Актер малой сцены
+                      a.actor_name(href='actor.html') Олег Долгов
+                      p Родилась в Москве. Начинала творческую карьеру как меццо-сопрано. В 1996 г. окончила Московскую консерваторию имени П.И.Чайковского 
+                      
+              .more_btn_holder
+                a.btn_v1.red_red_btn.poster_btn(href='#') ВСЕ АКТЕРЫ ТЕАТРА
+
+      +footer()

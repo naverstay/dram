@@ -1,0 +1,749 @@
+- var map = [[-1,34,33,32,31,30,29,28,27,26,25,24,23,22,21,20,19,18,-1,-1,17,16,15,14,13,12,11,10,9 ,8 ,7 ,6 ,5 ,4 ,3 ,2 ,1 ,-1,-1,-1,-1],                [-1,-1,-1,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,-1,-1,-1,-1,1 ],                [-1,-1,-1,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,-1,-1,-1,-1,2 ],                [-1,-1,-1,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,-1,-1,-1,-1,3 ],                [-1,-1,-1,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,-1,-1,-1,-1,4 ],                [-1,-1,-1,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,-1,-1,-1,-1,5 ],                [-1,-1,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,-1,-1,-1,6 ],                [-1,-1,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,-1,-1,-1,7 ],                [-1,-1,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,-1,-1,-1,8 ],                [-1,-1,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,-1,-1,-1,9 ],                [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],                [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],                [-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,10],                [-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,-1,11],                [-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,-1,12],                [0 ,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,-1,13],                [0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,-1,-1,14],                [0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,-1,-1,15],                [-1,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,-1,-1,-1,16],                [-1,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,-1,-1,-1,17],                [-1,-1,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,-1,-1,-1,-1,18],                [-1,-1,0 ,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0 ,-1,-1,-1,-1,-1],                [-1,-1,-1,0 ,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,0 ,-1,-1,-1,-1,-1,-1],                [-1,-1,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,-1,-1,-1,1 ],                [-1,-1,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,-1,-1,-1,2 ],                [-1,-1,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,-1,-1,-1,3 ],                [-1,-1,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,-1,-1,-1,4 ],                [-1,-1,-1,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,-1,-1,-1,-1,5 ],                [-1,-1,-1,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,-1,-1,-1,-1,6 ],                [-1,-1,-1,-1,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,-1,-1,-1,-1,-1,7 ],                [-1,-1,-1,-1,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,-1,-1,-1,-1,-1,-1,-1,8 ]            ]              
+
+
+
+mixin dev_head(page_title, index, about, actor, spectacle, news, blog, repertuar, guests, visitors, get_maps, afisha, get_open_signal)
+  head
+    title=page_title
+    | <!-- saved from url=(0014)about:internet -->
+    meta(charset='utf-8')
+    meta(name='viewport', content="width=device-width, initial-scale=1.0")
+    meta(name="SKYPE_TOOLBAR", content="SKYPE_TOOLBAR_PARSER_COMPATIBLE")
+    meta(name="apple-mobile-web-app-capable", content="yes")
+    meta(name="format-detection", content="telephone=no")
+    link(rel='stylesheet', href='styles/main_global.css', media='all')
+    //script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true')
+    script(src='js/jquery1.10.js')
+    script(src='js/jquery.touchSwipe.min.js')
+    script(src='js/10swiper.js')
+    //script(src='js/css3-mediaqueries.js')
+    script(src='js/script.js')
+    - if (index)
+      script(src='js/script_index.js')
+    - if (about)
+      script(src='js/jquery-ui.js')
+      script(src='js/imagesloaded.pkgd.min.js')
+      script(src='js/isotope.pkgd.min.js')
+      script(src='js/packery-mode.pkgd.js')
+      script(src='js/script_about.js')
+    - if (actor)
+      script(src='js/jquery-ui.js')
+      script(src='js/script_actor.js')
+    - if (spectacle)
+      script(src='js/jquery-ui.js')
+      script(src='js/script_spectacle.js')
+    - if (news)
+      script(src='js/jquery-ui.js')
+      script(src='js/script_news.js')
+    - if (blog)
+      script(src='js/jquery-ui.js')
+      script(src='js/script_blog.js')
+    - if (afisha)
+      script(src='js/jquery-ui.js')
+      script(src='js/script_afisha.js')
+    - if (repertuar)
+      script(src='js/jquery-ui.js')
+      script(src='js/script_repertuar.js')
+    - if (guests)
+      script(src='js/jquery-ui.js')
+      script(src='js/dialog.js')
+      script(src='js/script_guests.js')
+    - if (visitors)
+      script(src='js/jquery-ui.js')
+      script(src='js/imagesloaded.pkgd.min.js')
+      script(src='js/isotope.pkgd.min.js')
+      script(src='js/packery-mode.pkgd.js')
+      script(src='js/script_visitors.js')
+    - if (get_maps)
+      script(src='js/get_maps.js')
+    - if (get_open_signal)
+      //script(src='js/open_signal.js')
+      script(src='js/get_open_signal.js')
+
+
+mixin loop_while(counter)
+  -i=0;
+  while i < counter
+    -i++;
+    block
+
+mixin header(active_menu)
+  div.header
+    .section_inner
+      .logo_block
+        a.logo(href='index.html') Северодвинский  <br> драматический театр
+
+      .main_menu_holder
+        a.humburger.openMobMenu(href='#')
+          span
+        .main_menu_w: ul.main_menu
+          li.menu_item( class = (active_menu == 1 ? 'active' : ''))
+            a.menu_link(href='about.html')
+              span.link_text О  нас 
+          li.menu_item( class = (active_menu == 2 ? 'active' : ''))
+            a.menu_link(href='afisha.html')
+              span.link_text Афиша
+          li.menu_item( class = (active_menu == 3 ? 'active' : ''))
+            a.menu_link(href='repertuar.html')
+              span.link_text Репертуар 
+          li.menu_item( class = (active_menu == 4 ? 'active' : ''))
+            a.menu_link(href='visitors.html')
+              span.link_text Посетителям 
+          li.menu_item( class = (active_menu == 5 ? 'active' : ''))
+            a.menu_link(href='news.html')
+              span.link_text Новости
+          li.menu_item( class = (active_menu == 6 ? 'active' : ''))
+            a.menu_link(href='blog.html')
+              span.link_text Блог
+          li.menu_item( class = (active_menu == 7 ? 'active' : ''))
+            a.menu_link(href='guests.html')
+              span.link_text Гостевая
+          li.menu_item( class = (active_menu == 8 ? 'active' : ''))
+            a.menu_link(href='contacts.html')
+              span.link_text Контакты
+
+mixin main_slider()
+  .main_slider.swiper-container.noSwipe.mainSlider
+    .swiper-wrapper
+      +loop_while(2)
+        .main_s_slide.swiper-slide
+          .slide_img
+            img.mob_hidden(src='i/index/slide_1.jpg')
+            img.mob_only(src='i/index/slide_1_mob.jpg')
+
+            .abs_holder: .gl_table: .gl_table_cell: .slide_content: .section_inner
+              .event_date 8 августа I суббота I 21:00 I малая сцена
+              .event_name Белый ангел  <br>с чёрными крыльями
+              .event_info Пьющий муж, видимо по старой привычке прячет свою зарплату в укромное место. И, как обычно бывает, забывает - куда именно. Нестандартное решение проблемы придумывает его неугомонная и очень ворчливая гипнотизера ...
+              ul.event_controls
+                li: a.btn_v1.red_btn.slide_btn(href='#') ПОДРОБНЕЕ
+                li: a.btn_v1.red_btn.slide_btn(href='#') ВСЕ Спектакли
+                
+        .main_s_slide.swiper-slide
+          .slide_img
+            img.mob_hidden(src='i/index/slide_1.jpg')
+            img.mob_only(src='i/index/slide_1_mob.jpg')
+
+            .abs_holder: .gl_table: .gl_table_cell: .slide_content: .section_inner
+              .event_date 8 августа I суббота I 21:00 I малая сцена
+              .event_name ВВерх <br> Тормашками
+              .event_info Пьющий муж, видимо по старой привычке прячет свою зарплату в укромное место. И, как обычно бывает, забывает - куда именно. Нестандартное решение проблемы придумывает его неугомонная и очень ворчливая гипнотизера ...
+              ul.event_controls
+                li: a.btn_v1.red_btn.slide_btn(href='#') ПОДРОБНЕЕ
+                li: a.btn_v1.red_btn.slide_btn(href='#') ВСЕ Спектакли
+                
+    .swiper-pagination
+      
+mixin actor_hero()
+  .hero_section
+    .hero_img
+      img.mob_hidden(src='i/actor/actor_hero.jpg')
+      img.mob_only(  src='i/actor/actor_hero_mob.jpg')
+    .abs_holder: .gl_table: .gl_table_cell: .hero_content
+      .section_inner
+        .go_back_block: a.gl_link.go_back_link(href='#'): span.text_upper ВСЕ актеры
+        
+        h2.hero_title.text_upper Вениамин  <br> Чернгоглазов
+
+      .tabs_holder: .section_inner
+        .filter_list_scroller.filterListScroller.noSwipe
+          ul#filter_list.filter_list.text_upper
+            li.filter_item: a.filter_link(href='#filter_tab_1'): span.middle_block Описание
+            li.filter_item: a.filter_link(href='#filter_tab_2'): span.middle_block Фото и видео
+
+mixin text_hero()
+  .hero_section
+    .hero_img
+      img.mob_hidden(src='i/actor/actor_hero.jpg')
+      img.mob_only(  src='i/actor/actor_hero_mob.jpg')
+    .abs_holder: .gl_table: .gl_table_cell: .hero_content
+      .section_inner
+        .go_back_block: a.gl_link.go_back_link(href='#'): span.text_upper ВСЕ новости
+        .hero_date 22.12.2015
+        h2.hero_title.text_upper Заголовок новости,  <br>       Блога, другой карточки
+
+mixin spectacle_hero(visitors)
+  .hero_section
+    .hero_img
+      img.mob_hidden(src='i/spectacle/spectacle_hero.jpg')
+      img.mob_only(  src='i/spectacle/spectacle_hero_mob.jpg')
+    - if (visitors)
+      .abs_holder: .gl_table: .gl_table_cell.cell_bottom: .hero_content
+        .section_inner
+          //.go_back_block: a.gl_link.go_back_link(href='#'): span.text_upper ВСЕ СПЕКТАКЛИ
+          
+          h2.hero_title.text_upper Посетителям 
+          p «Есть два способа живо заинтересовать публику в театре:  <br>     при помощи великого или правдивого. Великое захватывает  <br>  массы, правдивое подкупает отдельных лиц.»  <br> Гюго В.
+
+        .tabs_holder: .section_inner
+          .filter_list_scroller.filterListScroller.noSwipe
+            ul#filter_list.filter_list.text_upper
+              li.filter_item: a.filter_link(href='#filter_tab_1'): span.middle_block Cтоимость  <br> билетов
+              li.filter_item: a.filter_link(href='#filter_tab_2'): span.middle_block Схема  <br>залов
+              li.filter_item: a.filter_link(href='#filter_tab_3'): span.middle_block Правила  <br> Посещения
+              li.filter_item: a.filter_link(href='#filter_tab_4'): span.middle_block Програмки
+              li.filter_item: a.filter_link(href='#filter_tab_5'): span.middle_block Экскурсии
+              li.filter_item: a.filter_link(href='#filter_tab_6'): span.middle_block Театральный бар
+    - else  
+      .abs_holder: .gl_table: .gl_table_cell: .hero_content
+        .section_inner
+          .go_back_block: a.gl_link.go_back_link(href='#'): span.text_upper ВСЕ СПЕКТАКЛИ
+          
+          h2.hero_title.text_upper Женитьба  <br> бальзаминова  
+  
+        .tabs_holder: .section_inner
+          .filter_list_scroller.filterListScroller.noSwipe
+            ul#filter_list.filter_list.text_upper
+              li.filter_item: a.filter_link(href='#filter_tab_1'): span.middle_block О спектакле
+              li.filter_item: a.filter_link(href='#filter_tab_2'): span.middle_block Фото и видео
+                  
+mixin about_hero()
+  .hero_section
+    .hero_img
+      img.mob_hidden(src='i/about/hero_about.jpg')
+      img.mob_only(  src='i/about/hero_about_mob.jpg')
+    .abs_holder: .gl_table: .gl_table_cell.cell_bottom: .hero_content
+      .section_inner
+        h2.hero_title О НАС
+        p «Если бы смысл театра был только в развлекательном зрелище, быть может, и не стоило бы класть в него столько труда.  <br> Но театр есть искусство отражать жизнь.»  <br> Станиславский.
+
+      .tabs_holder: .section_inner
+        .filter_list_scroller.filterListScroller.noSwipe
+          ul#filter_list.filter_list.text_upper
+            li.filter_item: a.filter_link(href='#filter_tab_1'): span.middle_block театр
+            li.filter_item: a.filter_link(href='#filter_tab_2'): span.middle_block Люди
+            li.filter_item: a.filter_link(href='#filter_tab_3'): span.middle_block ВАкансии
+                              
+mixin news_hero(blog)
+  .hero_section
+    .hero_img
+      img.mob_hidden(src='i/news/news_hero.jpg')
+      img.mob_only(  src='i/news/news_hero_mob.jpg')
+    .abs_holder: .gl_table: .gl_table_cell.cell_bottom: .hero_content.news_mod
+      .section_inner
+        - if (blog == 1)
+          h2.hero_title.text_upper Блог
+        - else if (blog == 2)
+          h2.hero_title.text_upper Гостевая
+        - else if (blog == 3)
+          h2.hero_title.text_upper Афиша
+        - else
+          h2.hero_title.text_upper Новости
+        p «Есть два способа живо заинтересовать публику в театре:  <br>     при помощи великого или правдивого. Великое захватывает  <br>  массы, правдивое подкупает отдельных лиц.»  <br> Гюго В.
+                                                            
+mixin repertuar_hero()
+  .hero_section
+    .hero_img
+      img.mob_hidden(src='i/repertuar/repertuar_hero.jpg')
+      img.mob_only(  src='i/repertuar/repertuar_hero_mob.jpg')
+    .abs_holder: .gl_table: .gl_table_cell.cell_bottom: .hero_content
+      .section_inner
+        h2.hero_title.text_upper Репертуар
+        p «Есть два способа живо заинтересовать публику в театре:  <br>     при помощи великого или правдивого. Великое захватывает  <br>  массы, правдивое подкупает отдельных лиц.»  <br> Гюго В.
+
+      .tabs_holder: .section_inner
+        .filter_list_scroller.filterListScroller.noSwipe
+          ul#filter_list.filter_list.text_upper
+            li.filter_item: a.filter_link(href='#filter_tab_1'): span.middle_block В этом сезоне
+            li.filter_item: a.filter_link(href='#filter_tab_2'): span.middle_block Архив спектаклей
+        
+mixin contacts_hero()
+  .hero_section
+    .hero_img
+      img.mob_hidden(src='i/contacts/contacts_hero.jpg')
+      img.mob_only(  src='i/contacts/contacts_hero_mob.jpg')
+    .abs_holder: .gl_table: .gl_table_cell.cell_bottom: .hero_content.news_mod
+      .section_inner
+        h2.hero_title.text_upper Контакты
+        p «Если бы смысл театра был только в развлекательном зрелище,  <br>  быть может, и не стоило бы класть в него столько труда.  <br>       Но театр есть искусство отражать жизнь.»  <br> Станиславский.
+
+
+mixin about_theatre(item)
+    //- if (item == 1)
+    .about_block
+      .history_unit
+        h3.history_caption История
+        p Театр России всегда был и остается одним из основных символов нашего государства и его культуры. Это главный национальный театр России, носитель традиций российской и центр мировой музыкальной культуры, способствующий развитию театрального искусства страны.
+        p Шедевры русского музыкального театра XIX—XX веков занимают главенствующее место в репертуаре, принципы формирования которого можно условно разделить на три категории. Большой предлагает вниманию своих зрителей русскую классику, в том числе XX век, западную классику, также включая признанные шедевры XX столетия, и специально заказанные сочинения. Новейшая история Большого театра знает уже немало сочинеий, созданных специально по его заказу: это опера «Дети Розенталя» Леонида Десятникова, балеты — Misericordes 
+        
+      .history_unit
+        h3.history_caption Настоящее
+        p Театр старается обеспечить преемственность поколений, занимаясь воспитанием молодой талантливой молодежи (так, создана специальная Молодежная оперная программа, призванная совершенствовать мастерство будущих звезд оперной сцены). Труппа  постоянно находится в хорошем творческом тонусе, поскольку должна решать разнообразные творческие задачи и предлагать плоды своей деятельности вниманию зрителей как на своей прославленной сцене, так и на сценах ведущих музыкальных театров мира. Знакомить отечественную публику с достижениями этих театров и приглашать «сторонних« звезд участвовать в собственном творческом процессе — еще одно важное направление деятельности театра.
+    
+    .aboutPresentW
+      .about_present_slider
+        .swiper-container.presentSlider
+          .swiper-wrapper
+            +loop_while(3)
+              .present_s_slide.swiper-slide
+                .slide_img
+                  img.mob_hidden(src='i/about/about_1.jpg')
+                  img.mob_only(src='i/about/about_1_mob.jpg')
+                
+      .about_present_slider_description
+        .about_present_slider_controls
+          a#about_present_prev.swiper_btn.swiper_btn_prev.noSwipe(href='#')
+          a#about_present_next.swiper_btn.swiper_btn_next.noSwipe(href='#')
+        .swiper-container.presentSliderText
+          .swiper-wrapper
+            +loop_while(3)
+              .present_s_slide.swiper-slide
+                p В рамках фото-проекта "Театральный портрет" - Сергей Черноглазов заслуженный артист РФ Северодвинского драматического театра.
+      
+    //- if (item == 2)
+    .about_block
+      .history_unit
+        h3.history_caption БУДУЩЕЕ
+        p Театр старается обеспечить преемственность поколений, занимаясь воспитанием молодой талантливой молодежи (так, создана специальная Молодежная оперная программа, призванная совершенствовать мастерство будущих звезд оперной сцены). 
+        p Труппа  постоянно находится в хорошем творческом тонусе, поскольку должна решать разнообразные творческие задачи и предлагать плоды своей деятельности вниманию зрителей как на своей прославленной сцене, так и на сценах ведущих музыкальных театров мира. Знакомить отечественную публику с достижениями этих театров и приглашать «сторонних« звезд участвовать в собственном творческом процессе — еще одно важное направление деятельности театра.
+      
+        h4.history_sub_caption Подзаголовок
+        ul
+          li: p с достижениями этих театров и приглашать 
+          li: p сторонних« звезд участвовать в собственном 
+          li: p творческом процессе — еще одно важное 
+          li: p направление деятельности театра.
+        
+mixin aside_calendar()
+  .aside_calendar
+    ul.aside_menu
+      li.aside_m_item
+        a.gl_link.calendarBtn(href='#') Декабрь
+        ul.aside_sub_menu
+          +loop_while(2)
+            li.aside_m_item: a.gl_link(href='#')
+              span.calendar_date 3
+              span.calendar_day Суббота
+            li.aside_m_item: a.gl_link(href='#')
+              span.calendar_date 4
+              span.calendar_day Воскресенье
+            li.aside_m_item: a.gl_link(href='#')
+              span.calendar_date 11
+              span.calendar_day Суббота
+            li.aside_m_item: a.gl_link(href='#')
+              span.calendar_date 20
+              span.calendar_day Среда
+          li.aside_m_item: a.gl_link(href='#')
+            span.calendar_date 4
+            span.calendar_day Воскресенье
+      li.aside_m_item
+        a.gl_link.calendarBtn(href='#') Ноябрь
+        ul.aside_sub_menu
+          +loop_while(2)
+            li.aside_m_item: a.gl_link(href='#')
+              span.calendar_date 3
+              span.calendar_day Суббота
+            li.aside_m_item: a.gl_link(href='#')
+              span.calendar_date 4
+              span.calendar_day Воскресенье
+            li.aside_m_item: a.gl_link(href='#')
+              span.calendar_date 11
+              span.calendar_day Суббота
+            li.aside_m_item.active: a.gl_link(href='#')
+              span.calendar_date 20
+              span.calendar_day Воскресенье
+          li.aside_m_item: a.gl_link(href='#')
+            span.calendar_date 4
+            span.calendar_day Среда
+      li.aside_m_item
+        a.gl_link.calendarBtn(href='#') Октябрь
+        ul.aside_sub_menu
+          +loop_while(2)
+            li.aside_m_item: a.gl_link(href='#')
+              span.calendar_date 3
+              span.calendar_day Суббота
+            li.aside_m_item: a.gl_link(href='#')
+              span.calendar_date 4
+              span.calendar_day Воскресенье
+            li.aside_m_item: a.gl_link(href='#')
+              span.calendar_date 11
+              span.calendar_day Суббота
+            li.aside_m_item: a.gl_link(href='#')
+              span.calendar_date 20
+              span.calendar_day Среда
+          li.aside_m_item: a.gl_link(href='#')
+            span.calendar_date 4
+            span.calendar_day Воскресенье
+            
+mixin aside_abc(i)
+  .aside_calendar
+    ul.aside_sub_menu.abcScroller
+      li.aside_m_item.active: a.gl_link.scrollTo(href='#item_' + i + '_1')
+        span.calendar_date А
+      li.aside_m_item: a.gl_link.scrollTo(href='#item_' + i + '_2')
+        span.calendar_date Б
+      li.aside_m_item: a.gl_link.scrollTo(href='#item_' + i + '_3')
+        span.calendar_date В
+      li.aside_m_item: a.gl_link.scrollTo(href='#item_' + i + '_4')
+        span.calendar_date Д
+      li.aside_m_item: a.gl_link.scrollTo(href='#item_' + i + '_5')
+        span.calendar_date М
+      li.aside_m_item: a.gl_link.scrollTo(href='#item_' + i + '_6')
+        span.calendar_date Л
+      li.aside_m_item: a.gl_link.scrollTo(href='#item_' + i + '_7')
+        span.calendar_date С
+      li.aside_m_item: a.gl_link.scrollTo(href='#item_' + i + '_8')
+        span.calendar_date Ш
+      li.aside_m_item: a.gl_link.scrollTo(href='#item_' + i + '_9')
+        span.calendar_date Я
+            
+mixin about_actor()
+    .about_block.actor_mod
+      .history_unit
+        h3.history_caption Биография
+        p _  <br>  Родился 23 июля 1947 года.
+        p _  <br> Окончил Ленинградский институт театра, музыки и кинематографии.  <br> Учился на курсе у народного артиста СССР Василия Васильевича Меркурьева и его жены Ирины Всеволодовны Мейрхольд, дочери  <br>  великого Мейерхольда. 
+        p _  <br>  После окончания института, в 1970 году, уехал по распределению       в Волгоград, в открывшийся новый ТЮЗ.
+        p _  <br>  С 1987 года - актер Северодвинского драматического театра.  <br>       Заслуженный артист РФ (1998).
+        p _  <br>  Жена - актриса, заслуженная артистка России Галина Лишица.
+
+      .history_unit
+        h3.history_caption репертуар
+        .repertoire_block
+          h4.actor_sub_caption Сейчас играет в постановках
+          p _  <br> Дед Мороз - "
+            a.gl_link.inherit_link(href='#') Дед Мороз и Санта-Клаус
+            | ", А.Иловайский  <br>    (2015, реж. Николай Черкасов)
+          p _  <br>  Витек - "
+            a.gl_link.inherit_link(href='#') За пёстрыми шторами
+            | ", Степан Лобозёров  <br>  (2015, реж. Николай Черкасов)
+          p _  <br>  "
+            a.gl_link.inherit_link(href='#') Он играл Гамлета...
+            | " памяти В.Высоцкого  <br>       (2015, реж. Николай Черкасов);
+        .repertoire_block
+          h4.actor_sub_caption Играл ранее 
+          p _  <br>  Корольков – «Трагический поединок», Аркадий Ставицкий  <br>       (1991, реж. Анатолий Шпаковский);
+          +loop_while(3)
+            p _  <br>  Петр - «Саня, Ваня, с ними Римас», Владимир Гуркин (2013, реж. Олег Пронин);
+            p _  <br>  Джонни Патинмайк - «Калека с острова Инишмаан», Мартин МакДонах (2012, реж. Сергей Сушенцев);
+        
+mixin repertuar(ind)
+  .swiper-container.filterSlider.filter_w
+    ul.people_filter_list.swiper-wrapper
+      li.people_filter_item.swiper-slide.active: a.gl_link.filterBtn(href='#' data-filter='*') Все
+      li.people_filter_item.swiper-slide: a.gl_link.filterBtn(href='#' data-filter='.big_stage') Большая сцена
+      li.people_filter_item.swiper-slide: a.gl_link.filterBtn(href='#' data-filter='.small_stage') Малая сцена
+      li.people_filter_item.swiper-slide: a.gl_link.filterBtn(href='#' data-filter='.childish') Детские
+  +aside_abc(ind)
+  .content_block: ul.blog_list.blogList
+    li.blog_unit.big_stage(id='item_' + ind + '_1')
+      a.blog_img(href='#'): img(src='i/blog/blog_1.jpg')
+      .news_title_holder
+        .news_date(datetime="2012-08-08T11:19") 8 августа I фотообзор
+        h2.news_title: a.gl_link.inherit_link(href='#') Фотообзор  репетиции                 Спектакля “Тризор”
+      .news_text: p Спектакль "Женитьба Бальзаминова" отличается своей современностью и актуальностью. Остроумный, ироничный текст А. Н. Островского, большого знатока человеческой природы и человеческих нравов, давно разобран на цитаты. Актеры представят историю
+
+    li.blog_unit.small_stage(id='item_' + ind + '_2')
+      a.blog_img(href='#'): img(src='i/blog/blog_1.jpg')
+      .news_title_holder
+        .news_date(datetime="2012-08-08T11:19") 8 августа I суббота I 21:00 I малая сцена
+        h2.news_title: a.gl_link.inherit_link(href='#') Женитьба Бальзаминова
+      .news_text: p Спектакль "Женитьба Бальзаминова" отличается своей современностью и актуальностью. Остроумный, ироничный текст А. Н. Островского, большого знатока человеческой природы и человеческих нравов, давно разобран на цитаты. Актеры представят историю не слишком умного, но очень практичного молодого человека Миши Бальзаминова редкость и в современном обществе.
+
+    li.blog_unit.childish(id='item_' + ind + '_3')
+      a.blog_img(href='#'): img(src='i/blog/blog_1.jpg')
+      .news_title_holder
+        .news_date(datetime="2012-08-08T11:19") 8 августа I от актера
+        h2.news_title: a.gl_link.inherit_link(href='#') Фотообзор  репетиции                 Спектакля “Тризор”
+      .news_text: p Спектакль "Женитьба Бальзаминова" отличается своей современностью и актуальностью. Остроумный, ироничный текст А. Н. Островского, большого знатока человеческой природы и человеческих нравов, давно разобран на цитаты. Актеры представят историю
+            
+    li.blog_unit.big_stage(id='item_' + ind + '_4')
+      a.blog_img(href='#'): img(src='i/blog/blog_1.jpg')
+      .news_title_holder
+        .news_date(datetime="2012-08-08T11:19") 8 августа I фотообзор
+        h2.news_title: a.gl_link.inherit_link(href='#') Фотообзор  репетиции                 Спектакля “Тризор”
+      .news_text: p Спектакль "Женитьба Бальзаминова" отличается своей современностью и актуальностью. Остроумный, ироничный текст А. Н. Островского, большого знатока человеческой природы и человеческих нравов, давно разобран на цитаты. Актеры представят историю
+
+    li.blog_unit.small_stage(id='item_' + ind + '_5')
+      a.blog_img(href='#'): img(src='i/blog/blog_1.jpg')
+      .news_title_holder
+        .news_date(datetime="2012-08-08T11:19") 8 августа I суббота I 21:00 I малая сцена
+        h2.news_title: a.gl_link.inherit_link(href='#') Женитьба Бальзаминова
+      .news_text: p Спектакль "Женитьба Бальзаминова" отличается своей современностью и актуальностью. Остроумный, ироничный текст А. Н. Островского, большого знатока человеческой природы и человеческих нравов, давно разобран на цитаты. Актеры представят историю не слишком умного, но очень практичного молодого человека Миши Бальзаминова редкость и в современном обществе.
+
+    li.blog_unit.childish(id='item_' + ind + '_6')
+      a.blog_img(href='#'): img(src='i/blog/blog_1.jpg')
+      .news_title_holder
+        .news_date(datetime="2012-08-08T11:19") 8 августа I от актера
+        h2.news_title: a.gl_link.inherit_link(href='#') Фотообзор  репетиции                 Спектакля “Тризор”
+      .news_text: p Спектакль "Женитьба Бальзаминова" отличается своей современностью и актуальностью. Остроумный, ироничный текст А. Н. Островского, большого знатока человеческой природы и человеческих нравов, давно разобран на цитаты. Актеры представят историю
+      
+mixin text()
+    .about_block.actor_mod
+      .history_unit
+        h3.history_caption ПОдзаголовок
+        p _  <br>  Родился 23 июля 1947 года.
+        p _  <br> Окончил Ленинградский институт театра, музыки и кинематографии.  <br> Учился на курсе у народного артиста СССР Василия Васильевича Меркурьева и его жены Ирины Всеволодовны Мейрхольд, дочери  <br>  великого Мейерхольда. 
+        p _  <br>  После окончания института, в 1970 году, уехал по распределению       в Волгоград, в открывшийся новый ТЮЗ.
+        p _  <br>  С 1987 года - актер Северодвинского драматического театра.  <br>       Заслуженный артист РФ (1998).
+        p _  <br>  Жена - актриса, заслуженная артистка России Галина Лишица.
+
+      .history_unit
+        h3.history_caption ПОдзаголовок
+        .repertoire_block
+          h4.actor_sub_caption Под/подзаголовок
+          p _  <br> Дед Мороз - "
+            a.gl_link.inherit_link(href='#') Дед Мороз и Санта-Клаус
+            | ", А.Иловайский  <br>    (2015, реж. Николай Черкасов)
+          p _  <br>  Витек - "
+            a.gl_link.inherit_link(href='#') За пёстрыми шторами
+            | ", Степан Лобозёров  <br>  (2015, реж. Николай Черкасов)
+          p _  <br>  "
+            a.gl_link.inherit_link(href='#') Он играл Гамлета...
+            | " памяти В.Высоцкого  <br>       (2015, реж. Николай Черкасов);
+        .repertoire_block
+          h4.actor_sub_caption Под/подзаголовок
+          p _  <br>  Корольков – «Трагический поединок», Аркадий Ставицкий  <br>       (1991, реж. Анатолий Шпаковский);
+          +loop_while(3)
+            p _  <br>  Петр - «Саня, Ваня, с ними Римас», Владимир Гуркин (2013, реж. Олег Пронин);
+            p _  <br>  Джонни Патинмайк - «Калека с острова Инишмаан», Мартин МакДонах (2012, реж. Сергей Сушенцев);
+
+mixin scene_map()
+  .scene_block
+    .scene_mob
+      img(src='i/visitors/scene_map.png')
+    table.scene_table
+      tr.scene_row.stage_row
+        +loop_while(5)
+          td: .seat_unit.no_seat
+        td.stage_cell(colspan=28): .seat_unit.seat_available
+          span.stage_name СЦЕНА
+        +loop_while(8)
+          td: .seat_unit.no_seat
+
+      each row, row_index in map
+        tr.scene_row.sitsRow(class= row_index == 0 ? 'sits_number ' : '')
+          each seat, seat_index in row
+            td: .seat_unit( class= seat_index == ( seat > 0 && row.length - 1) ? 'clickRow hover_row' : '' , class= (seat > 0 && row_index == 0) ? 'clickCol hover_col' : '' , class=(seat > 0 ? 'seat_number' : seat < 0 ? 'no_seat' : 'seat_available'))!=(seat>0? seat : '&nbsp;')
+            
+mixin tickets()
+  .about_block
+    .people_list: ul#grid.g_row.gridList
+      li.box.g_col_d_4.g_col_t_6.g_col_m_12: .ticket_item
+        .ticket_icon.icon-eye_plus
+        .ticket_name Премьерные
+        dl.ticket_price
+          dt зал
+          dd 300 рублей
+          dt балкон
+          dd 150 рублей* 
+      li.box.g_col_d_4.g_col_t_6.g_col_m_12: .ticket_item
+        .ticket_icon.icon-poni
+        .ticket_name Детские
+        dl.ticket_price
+          dt Независимо от возраста 
+          dd 150 рублей* 
+          
+      li.box.g_col_d_4.g_col_t_6.g_col_m_12: .ticket_item
+        .ticket_icon.icon-moon_2
+        .ticket_name Вечерние, суббота и воскресенье
+        dl.ticket_price
+          dt зал
+          dd 250 рублей
+          dt балкон
+          dd 150 рублей* 
+                    
+      li.box.g_col_d_4.g_col_t_6.g_col_m_12: .ticket_item
+        .ticket_icon.icon-moon
+        .ticket_name Вечерние в будни
+        dl.ticket_price
+          dt зал
+          dd 200 рублей
+          dt балкон
+          dd 100 рублей* 
+          
+      li.box.g_col_d_4.g_col_t_6.g_col_m_12: .ticket_item
+        .ticket_icon.icon-curtain
+        .ticket_name Малая сцена
+        dl.ticket_price
+          dt Взрослые
+          dd 200 рублей
+          dt Дети и школьники
+          dd 100 рублей
+                    
+      li.box.g_col_d_4.g_col_t_6.g_col_m_12: .ticket_item
+        .ticket_icon.icon-photo
+        .ticket_name Экскурсия
+        dl.ticket_price
+          dt 30 рублей с человека
+          dd &nbsp;
+          
+mixin about_spectacle()
+    .about_block
+      .spectacle_info: .g_row
+        .g_col_d_8.g_col_t_8.g_col_m_11: .spectacle_description
+          h4.spectacle_info_caption.text_upper Описание 
+          .spectacle_info_box
+            dl.spectacle_info_list
+              dt Продолжительность: 
+              dd 2 часа
+              dt Режиссер-постановщик: 
+              dd О. Пронин
+              dt Художник: 
+              dd В. Фесенко
+              dt Художник по свету: 
+              dd С. Костарев
+              dt Автор: 
+              dd А. Островский
+          .spectacle_info_box
+            dl.spectacle_info_list
+              dt Жанр: 
+              dd Комедия в двух действиях
+              dt Премьера: 
+              dd 23 марта 2013
+              dt Музыкальное оформление: 
+              dd К. Кислов
+              dt Возрастное ограничение: 
+              dd 12+
+        .g_col_d_4.g_col_t_4.g_col_m_8.g_col_right: .spectacle_dates
+          h4.spectacle_info_caption.text_upper Даты представления
+          p 24 июля / 25 июля / 14 сентября /         16 сентября / 2 декабря / 4 декабря / 16 сентября / 17 сентября 
+            
+      .history_unit
+        h3.history_caption Аннотация
+        p Театр старается обеспечить преемственность поколений, занимаясь воспитанием молодой талантливой молодежи (так, создана специальная Молодежная оперная программа, призванная совершенствовать мастерство будущих звезд оперной сцены). Труппа  постоянно находится в хорошем творческом тонусе, поскольку должна решать разнообразные творческие задачи и предлагать плоды своей деятельности вниманию зрителей как на своей прославленной сцене, так и на сценах ведущих музыкальных театров мира. Знакомить отечественную публику с достижениями этих театров и приглашать «сторонних« звезд участвовать в собственном творческом процессе — еще одно важное направление деятельности театра.
+
+      .history_unit.spectacle_mod
+        h3.history_caption РОЛИ ИСПОЛНЯЮТ
+        
+        .spectacle_actors_list
+          .swiper-container.noSwipe.spectacleSlider.actor_slider
+            .swiper-wrapper
+              +loop_while(2)
+                .swiper-slide: .actor_slide
+                  a.actor_photo(href='actor.html')
+                    img(src='i/actor/no_photo.jpg')
+                    .no_photo
+                  .actor_info
+                    p Актриса малой сцены
+                    a.actor_name(href='actor.html') Диана Алиева
+                    p Родилась в Кисловодске. В 2004 г. окончила Музыкальное училище имени Гнесиных, в 2009 г. — Российскую академию музыки имени Гнесиных 
+                .swiper-slide: .actor_slide
+                  a.actor_photo(href='actor.html'): img(src='i/index/actor_2.jpg')
+                  .actor_info
+                    p Актриса малой сцены
+                    a.actor_name(href='actor.html') Екатерина Головлева
+                    p Родилась в Москве. Начинала творческую карьеру как меццо-сопрано. В 1996 г. окончила Московскую консерваторию имени П.И.Чайковского 
+                .swiper-slide: .actor_slide
+                  a.actor_photo(href='actor.html'): img(src='i/index/actor_3.jpg')
+                  .actor_info
+                    p Актер малой сцены
+                    a.actor_name(href='actor.html') Олег Долгов
+                    p Родилась в Москве. Начинала творческую карьеру как меццо-сопрано. В 1996 г. окончила Московскую консерваторию имени П.И.Чайковского
+        
+mixin about_people()
+  .about_block
+    .swiper-container.filterSlider
+      ul.people_filter_list.swiper-wrapper
+        li.people_filter_item.swiper-slide.active: a.gl_link.filterBtn(href='#' data-filter='*') Все
+        li.people_filter_item.swiper-slide: a.gl_link.filterBtn(href='#' data-filter='.lead') Руководство
+        li.people_filter_item.swiper-slide: a.gl_link.filterBtn(href='#' data-filter='.actor') Актеры
+        li.people_filter_item.swiper-slide: a.gl_link.filterBtn(href='#' data-filter='.staff') Стафф
+      
+    .people_list: ul#grid.g_row.gridList
+      +loop_while(6)
+        li.box.lead.g_col_d_4.g_col_t_6.g_col_m_12: .actor_slide
+          a.actor_photo(href='actor.html'): img(src='i/index/actor_1.jpg')
+          .actor_info
+            p Актриса малой сцены
+            a.actor_name(href='actor.html') Диана Алиева
+            p Родилась в Кисловодске. В 2004 г. окончила Музыкальное училище имени Гнесиных, в 2009 г. — Российскую академию музыки имени Гнесиных 
+            
+      +loop_while(4)
+        li.box.actor.g_col_d_4.g_col_t_6.g_col_m_12: .actor_slide
+          a.actor_photo(href='actor.html'): img(src='i/index/actor_2.jpg')
+          .actor_info
+            p Актриса малой сцены
+            a.actor_name(href='actor.html') Диана Алиева
+            p Родилась в Кисловодске. В 2004 г. окончила Музыкальное училище имени Гнесиных, в 2009 г. — Российскую академию музыки имени Гнесиных 
+                
+      +loop_while(2)
+        li.box.staff.g_col_d_4.g_col_t_6.g_col_m_12: .actor_slide
+          a.actor_photo(href='actor.html'): img(src='i/index/actor_3.jpg')
+          .actor_info
+            p Актриса малой сцены
+            a.actor_name(href='actor.html') Диана Алиева
+            p Родилась в Кисловодске. В 2004 г. окончила Музыкальное училище имени Гнесиных, в 2009 г. — Российскую академию музыки имени Гнесиных 
+            
+  .more_btn_holder
+    a.btn_v1.red_red_btn.poster_btn(href='#') ВСЕ АКТЕРЫ ТЕАТРА
+            
+            
+mixin about_vacancy()
+  .about_block
+    .vacancy_row: ul.g_row
+      li.box.g_col_d_4.g_col_t_6.g_col_m_12
+        .vacancy_block: .vacancy_block_inner
+          .vacancy_date 26 августа
+          .vacancy_name Заведующий труппой
+          p Осуществляет организационное руководство производственно - творческой деятельностью труппы театра. Участвует в распределении ролей в новых и капитально возобновляемых постановках. Принимает заявки от артистов на новые роли и выносит их на рассмотрение руководства...
+          p Организация производственно - творческого процесса в театре; основы режиссуры и актерского мастерства; основы трудового законодательства; основы организации труда и управления, нормативный документы в области культуры и искусства.
+          
+      li.box.g_col_d_4.g_col_t_6.g_col_m_12
+        .vacancy_block: .vacancy_block_inner
+          .vacancy_date 26 августа
+          .vacancy_name Главный администратор
+          p Организация работ по выполнению плана показа спектаклей; организация приема и обслуживания зрителей; организация выездных спектаклей; организация и распространение рекламы и т.д.
+          p Требования:  <br> Организация театрального производства; психология управления и творческого труда; правила распространения рекламы.
+          
+      li.box.g_col_d_4.g_col_t_6.g_col_m_12
+        .vacancy_block: .vacancy_block_inner
+          .vacancy_date 26 августа
+          .vacancy_name Администратор ресторана
+          p Обеспечение работы ресторана в соответствии со стандартами компании; Обслуживание гостей по стандарту гостеприимства компании; Решение спорных и конфликтных ситуаций; Составление графика работы сотрудников, ведение табеля учета рабочего времени; Организация работы..
+          p Требования:  <br> Желание расти и развиваться в ресторанном бизнесе; Гражданство РФ, Беларусь. Опыт работы менеджером в ресторанном бизнесе от года обязательно! Знание ПК на уровне пользователя
+                    
+      li.box.g_col_d_4.g_col_t_6.g_col_m_12
+        .vacancy_block: .vacancy_block_inner
+          .vacancy_date 26 августа
+          .vacancy_name Медиа-менеджер
+          p Если ты свой среди журналистов, если "продать" им что-то интересное - твой драйв, будем рады видеть тебя в нашей компании! Что делать: Налаживание и поддержка контактов с журналистами; Взаимодействие со СМИ: содействие выходу публикаций о компании, «пробивание»...
+          
+      li.box.g_col_d_4.g_col_t_6.g_col_m_12
+        .vacancy_block: .vacancy_block_inner
+          .vacancy_date 26 августа
+          .vacancy_name Главный администратор
+          p Организация работ по выполнению плана показа спектаклей; организация приема и обслуживания зрителей; организация выездных спектаклей; организация и распространение рекламы и т.д.
+          p Требования:  <br> Организация театрального производства; психология управления и творческого труда; правила распространения рекламы.
+          
+            
+mixin footer()
+  .footer
+    .section_inner.clearfix
+      ul.partners_list
+        li: p Партнеры
+        li 
+          a.partner_box.partner_government(href='#')
+            p Администрация  <br>Северодвинска
+        li 
+          a.partner_box.partner_milana(href='#')
+            p Швейная матерская <br>Milana
+
+      .copyright: .copyright_text Северодвинский драматический театр 
+        span.dt_only <br> 
+        |  &copy; 2015
+
+mixin popup()
+  #comment_form(style="display:none", title="Оставить Комментарий")
+    .popup_form_v1
+      .form_cell
+        label.form_label(for='comment_name') Заголовок
+        .input_w
+          input#comment_name.form_input_v1(value='Спектакль - бомба')
+      .form_cell
+        label.form_label(for='comment_text') Текст
+        .input_w
+          textarea#comment_text.form_input_v1(value='Спектакль - бомба')
+      .form_cell
+        label.form_label() Авторизуйтесь через социальную сеть
+        .input_w
+          ul.soc_auth_list
+            li.soc_auth_item: a.gl_link.soc_fb.white_red_btn.btn_v1(href='#') 
+            li.soc_auth_item: a.gl_link.soc_vk.white_red_btn.btn_v1(href='#') 
+            li.soc_auth_item: a.gl_link.soc_tw.white_red_btn.btn_v1(href='#') 
+      .form_cell
+        label.form_label.hide(for='comment_submit') Авторизуйтесь через социальную сеть
+        .input_w.clearfix
+          button#comment_submit.white_red_btn.btn_v1.form_btn: span Отправить
+            
+            

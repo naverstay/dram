@@ -1,0 +1,52 @@
+include mixins
+doctype html
+html(lang='ru')
+  +dev_head('Dram contacts')
+
+  body
+    .wrapper
+      //.rect_1024
+      +header(8)
+      
+      .base
+        +contacts_hero()
+        
+        div.main_content
+          .section_inner
+            .about_block
+              .history_unit
+                h3.history_caption АДРЕС
+                p 164500 Архангельская обл.  <br>               г. Северодвинск ул. Ломоносова 77.
+        
+              .history_unit
+                h3.history_caption ТЕЛЕФОН
+                p 8(8184) 54-08-00  <br>  Директор Голубева Алевтина Геннадьевна
+                p 8(8184) 54-24-90  <br>  Главный администратор Гончаренко Светлана Викторовна
+                p 8(8184) 54-24-90  <br>  Касса
+                p 8(8184) 54-19-60  <br>  Вахта
+                p 8(8184) 54-08-12  <br>  Факс
+                p 8(8184) 54-08-35  <br>  Администратор театрального бара Трескина Марина Альбертовна
+                p +7(952) 256 58 90  <br>  Администратор малой сцены Попкова Людмила Александровна
+                p +7(921) 673 80 42  <br>  Заказ экскурсий.         
+                  
+              .history_unit
+                h3.history_caption ЭЛЕКТРОННАЯ ПОЧТА
+                p
+                  a.gl_link.color_red(href='mailto:dramteatrs@yandex.ru') dramteatrs@yandex.ru
+                                      
+              .history_unit
+                h3.history_caption ВРЕМЯ РАБОТЫ КАСС
+                dl.ticket_work_time
+                  dt Понедельник-Пятница 
+                  dd с 14:00 до 21:00
+
+                  dt Суббота- Воскресенье
+                  dd с 11:00 до 18:00 
+                  
+                  dt Обед
+                  dd с 12:00 до 14:00
+                  
+                  dt.empty Вторник -выходной
+                  dd &nbsp;
+                    
+      +footer()

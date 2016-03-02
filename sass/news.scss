@@ -1,0 +1,464 @@
+.news_block {
+  @extend %clearfix;
+  padding-top : 48 * $m;
+  
+  &.blog_mod {
+    padding-top : 42 * $m;
+    
+    .people_filter_list {
+      margin-bottom : 2.7em;
+    }
+    
+    .news_title {
+      @include respond-to-min($tablet) {
+        line-height : 1.1;
+      }
+    }
+  }
+  
+  @include respond-to-max($tablet) {
+    margin : 0 -3em;
+    
+    &.blog_mod {
+      padding-top : 34 * $m;
+      
+      .filter_w {
+        padding-left : 48 * $m;
+      }
+    }
+    
+    .aside_calendar {
+      width : 140 * $m;
+    }
+    
+    .content_block {
+      margin-left  : 140 * $m;
+      margin-right : 1em;
+    }
+    
+    .aside_menu {
+      
+      > .aside_m_item {
+        
+        > .gl_link {
+          margin-bottom : 1.6em;
+          padding-left  : 1.86316em;
+          font-size     : .875em;
+        }
+      }
+      
+      .aside_sub_menu {
+        margin-top    : -.7em;
+        margin-bottom : .8em;
+        
+        .aside_m_item {
+          line-height : 1.18;
+          
+          .gl_link {
+            &:before {
+              bottom : auto;
+              top    : 7 * $m;
+            }
+          }
+        }
+      }
+    }
+    
+    .aside_sub_menu {
+      margin-top : 0;
+      
+      .aside_m_item {
+        line-height : 2.2;
+        
+        .gl_link {
+          &:before {
+            bottom : auto;
+            top    : 7 * $m;
+          }
+        }
+      }
+      
+      .calendar_date {
+        margin-left : 20 * $m;
+        min-width   : 44 * $m;
+        padding     : 0 12 * $m;
+        background  : #fff;
+      }
+      
+    }
+    
+    .calendar_day {
+      display      : block;
+      padding-left : 32 * $m / .75;
+    }
+  }
+  
+}
+
+.aside_calendar {
+  float : left;
+  width : 155 * $m;
+}
+
+.aside_menu {
+  
+  .gl_link {
+    text-decoration : none;
+  }
+  
+  > .aside_m_item {
+    //margin-bottom : 5 * $m;
+    
+    > .gl_link {
+      display        : block;
+      font           : 19 * $m $museosanscyrl700;
+      color          : #000;
+      text-transform : uppercase;
+      letter-spacing : .7 * $m / 1.1875;
+      margin-bottom  : 14 * $m / 1.1875;
+      padding-left   : 5 * $m / 1.1875;
+      
+      &:hover {
+        color : $gl_red;
+      }
+    }
+    
+    &.active {
+      .gl_link {
+        cursor : default;
+        color  : $gl_red;
+      }
+    }
+    
+  }
+  
+  .aside_sub_menu {
+    display : none;
+  }
+  
+}
+
+.aside_sub_menu {
+  margin-top : -7  * $m;
+  
+  .calendar_date {
+    font         : 16 * $m $museosanscyrl700;
+    color        : #000;
+    min-width    : 40 * $m;
+    padding-left : 5 * $m;
+    display      : inline-block;
+    position     : relative;
+    z-index      : 1;
+  }
+  
+  .gl_link {
+    position : relative;
+    display  : block;
+    
+    &:before {
+      @include transition_all(border-bottom .3s);
+      content       : '';
+      position      : absolute;
+      bottom        : 0;
+      right         : 0;
+      left          : 0;
+      border-bottom : 4 * $m solid transparent;
+    }
+    
+    &:hover:before {
+      border-bottom-color : $gl_red;
+    }
+  }
+  
+  .aside_m_item {
+    line-height : 33 * $m;
+    
+    &.active {
+      .gl_link {
+        
+        &:before {
+          border-bottom-color : $gl_red;
+        }
+        
+        .calendar_date {
+          color : $gl_red;
+        }
+      }
+    }
+  }
+  
+}
+
+.calendar_day {
+  font-size : 12 * $m;
+  color     : #64646a;
+  position  : relative;
+  z-index   : 1;
+}
+
+.content_block {
+  margin-left : 175 * $m;;
+}
+
+.news_list {
+  border        : 1px solid #f3f3f3;
+  margin-bottom : 70 * $m;
+  
+  @include respond-to-min($desktop) {
+    margin-bottom : 200 * $m;
+  }
+}
+
+.blog_list {
+  margin-bottom : 70 * $m;
+  
+  @include respond-to-min($desktop) {
+    margin-bottom : 200 * $m;
+  }
+}
+
+.news_title_holder {
+  @include transition_all(background .3s);
+  padding  : 28 * $m 80 *$m 16 * $m 40 *$m;
+  position : relative;
+  
+  .news_unit & {
+    @extend .icon-before;
+    @extend .icon-arrow_right;
+    
+    &:before {
+      @include transform_rotate(90);
+      position  : absolute;
+      bottom    : 20 * $m / 3.125;
+      right     : 25 * $m / 3.125;
+      color     : #fff;
+      font-size : 50 * $m;
+    }
+  }
+  
+  @include respond-to-max($tablet) {
+    padding-top    : 3.5em;
+    padding-bottom : .25em;
+    
+    .news_date {
+      padding       : 0.66667em 0.75em;
+      margin-bottom : .5em;
+    }
+  }
+}
+
+.news_text {
+  @include transition_all(background .3s, color .3s);
+  padding : 1px 40 *$m 56 * $m;
+  color   : #64646a;
+  
+  p {
+    font-size   : 16 * $m;
+    line-height : 1.6;
+    margin-top  : .75em;
+  }
+  
+  @include respond-to-max($tablet) {
+    padding-bottom : 2.75em;
+    
+    p {
+      line-height : 1.9;
+      margin-top  : .5em;
+    }
+  }
+}
+
+.news_unit {
+  border-top : 1px solid #f3f3f3;
+  
+  &:first-child {
+    border-top : none;
+  }
+  
+  &:hover {
+    .news_title_holder {
+      background : $gl_red;
+    }
+    
+    .news_text {
+      background : #ffa897;
+      color      : #b86153;
+    }
+    
+    .news_title {
+      color : #fff;
+    }
+    
+  }
+}
+
+.news_date {
+  display        : inline-block;
+  vertical-align : top;
+  background     : $gl_red;
+  color          : #fff;
+  font-size      : 12 * $m;
+  padding        : 8 * $m / .75 13 * $m / .75;
+  margin-bottom  : 14 * $m / .75;
+}
+
+.news_title {
+  @include transition_all(color .3s);
+  color          : #000;
+  font           : 30 * $m $museosanscyrl700;
+  line-height    : 1.3;
+  text-transform : uppercase;
+  letter-spacing : -.2 * $m / 1.875;
+}
+
+.blog_unit {
+  @extend %clearfix;
+  border        : 1px solid #f3f3f3;
+  margin-bottom : 20 * $m;
+  height        : 330 * $m;
+  overflow      : hidden;
+  
+  .blog_img {
+    float    : left;
+    overflow : hidden;
+    width    : 330 * $m;
+  }
+  
+  .news_text,
+  .news_title_holder {
+    margin-left : 330 * $m;
+  }
+  
+  .news_title_holder {
+    padding-bottom : 0;
+    padding-right  : 2em;
+  }
+  
+  .news_title {
+    .gl_link {
+      text-decoration : none;
+    }
+    
+    &:hover {
+      color : $gl_red;
+    }
+  }
+  
+  @include respond-to-max($tablet) {
+    height   : auto;
+    overflow : visible;
+    
+    .blog_img {
+      float      : none;
+      width      : 100%;
+      max-height : 420 * $m;
+    }
+    
+    .news_text,
+    .news_title_holder {
+      margin-left : 0;
+    }
+    
+    .news_text {
+      padding-bottom : 2em;
+    }
+    
+    .news_title_holder {
+      padding-top : 2em;
+    }
+  }
+}
+
+.blog_img {
+  @extend .icon-before;
+  @extend .icon-arrow_right;
+  position        : relative;
+  display         : block;
+  text-decoration : none;
+  
+  &:after {
+    @include transition_all(opacity .3s);
+    content    : '';
+    position   : absolute;
+    top        : 0;
+    bottom     : 0;
+    left       : 0;
+    right      : 0;
+    opacity    : 0;
+    background : $gl_red;
+  }
+  
+  &:before {
+    @include transition_all(opacity .3s);
+    position  : absolute;
+    right     : 32 * $m / 3.125;
+    top       : 27 * $m / 3.125;
+    color     : #fff;
+    font-size : 50 * $m;
+    z-index   : 1;
+    opacity   : 0;
+  }
+  
+  img {
+    display        : inline-block;
+    vertical-align : top;
+    max-width      : 100%;
+  }
+  
+  &:hover {
+    &:after {
+      opacity : .8;
+    }
+    
+    &:before {
+      opacity : 1;
+    }
+  }
+  
+}
+
+.ticket_work_time {
+  overflow       : hidden;
+  white-space    : nowrap;
+  color          : #474747;
+  font           : 1.125em $museosanscyrl300;
+  letter-spacing : -.005em;
+  line-height    : 1.4;
+  width          : 355 * $m;
+  
+  @include respond-to-min($tablet) {
+    width : 405 * $m;
+  }
+  
+  dt, dd {
+    position : relative;
+  }
+  
+  dt {
+    float : left;
+    clear : both;
+    
+    &:after {
+      position    : absolute;
+      left        : 100%;
+      bottom      : 0;
+      margin-left : 2 * $m;
+      content     : '........................................................................................................ ';
+    }
+    
+    &.empty {
+      &:after {
+        display : none;
+      }
+    }
+  }
+  
+  dd {
+    float        : right;
+    z-index      : 1;
+    background   : #fff;
+    padding-left : 2 * $m;
+  }
+  
+}
+

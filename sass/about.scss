@@ -1,0 +1,631 @@
+.hero_section {
+  position : relative;
+}
+
+.hero_img {
+  text-align : center;
+  overflow   : hidden;
+  
+  img {
+    max-width      : 100%;
+    display        : inline-block;
+    vertical-align : top;
+  }
+  
+  @include respond-to-max($tablet) {
+    max-height : 380 * $m;
+  }
+  
+}
+
+.hero_content {
+  padding-bottom : 80 * $m;
+  letter-spacing : -.005em;
+  
+  &.news_mod {
+    padding-bottom : 32 * $m;
+  }
+  
+  p {
+    color          : #fff;
+    font           : 16 * $m $museosanscyrl300;
+    line-height    : 1.9;
+    max-width      : 500 * $m;
+    max-height     : 4em * 1.9;
+    letter-spacing : 0;
+    overflow       : hidden;
+  }
+  
+  .filter_list {
+    //@extend %clearfix;
+    white-space : nowrap;
+  }
+  
+  .filter_item {
+    //font-size      : 12 * $m;
+    display        : inline-block;
+    vertical-align : top;
+    margin         : 0 0 (-1 * $m) (-1 * $m);
+    
+    &.ui-tabs-active {
+      .filter_link {
+        color      : $gl_red;
+        background : #fff;
+      }
+    }
+  }
+  
+  .filter_link {
+    @include transition_all(color .3s, background .3s);
+    padding     : 0 22 * $m;
+    color       : #fff;
+    font        : 16 * $m $museosanscyrl700;
+    line-height : 50 * $m;
+    
+    &:hover {
+      color : $gl_red;
+    }
+  }
+  
+  @include respond-to-max($tablet) {
+    padding-left   : 1.4em;
+    padding-right  : 1.4em;
+    padding-bottom : 7.2em;
+    
+    .filter_list {
+      padding : 0 0.4em;
+    }
+    
+    .filter_link {
+      font-size   : 1.2em;
+      padding     : 0 16 * $m;
+      line-height : 65 * $m;
+    }
+  }
+  
+}
+
+.tabs_holder {
+  position : absolute;
+  bottom   : 0;
+  right    : 0;
+  left     : 0;
+}
+
+.hero_title {
+  color         : #fff;
+  font          : 56 * $m $museosanscyrl700;
+  line-height   : 1.18;
+  max-height    : 3.54em;
+  overflow      : hidden;
+  margin-bottom : 25 * $m / 3.5;
+  
+  @include respond-to-max($tablet) {
+    letter-spacing : 1px;
+    margin-bottom  : 3 * $m / 3.5;
+  }
+}
+
+.hero_date {
+  font-size     : 12 * $m;
+  color         : #fff;
+  margin-bottom : 20 * $m / .75;
+}
+
+.filter_link {
+  display         : block;
+  text-decoration : none;
+}
+
+.about_block {
+  padding-top : 40 * $m;
+  
+  &.actor_mod {
+    padding-top : 4.4em;
+  }
+  
+  &:last-child {
+    padding-bottom : 150 * $m;
+    
+    @include respond-to-max($tablet) {
+      padding-bottom : 4em;
+    }
+  }
+  
+}
+
+.history_unit {
+  padding : 10 * $m 170 * $m 0;
+  
+  p {
+    color          : #474747;
+    font           : 18 * $m $museosanscyrl300;
+    letter-spacing : -.005em;
+    line-height    : 1.4;
+    margin-bottom  : 25 * $m / 1.125;
+  }
+  
+  &.spectacle_mod {
+    padding-top : 25 * $m;
+  }
+  
+  .actor_mod & {
+    padding-top : 70 * $m;
+    
+    &:first-child {
+      padding-top : 0.625em;
+    }
+    
+    p {
+      margin-bottom : 0;
+    }
+  }
+  
+  ul {
+    list-style    : none;
+    margin-bottom : 1.38889em;
+    
+    li {
+      position     : relative;
+      padding-left : 24 * $m;
+      
+      &:before {
+        content      : '';
+        position     : absolute;
+        left         : 0;
+        background   : #474747;
+        height       : 2 * $m;
+        top          : 12 * $m;
+        width        : 13 * $m;
+        border       : solid #575757;
+        border-width : 0 1px;
+      }
+      
+      p {
+        margin : 1.38889em 0 4 * $m;
+        
+        &:first-child {
+          margin-top : 0;
+        }
+      }
+    }
+  }
+  
+  @include respond-to-max($tablet) {
+    padding : 0.625em 1.3em 0;
+    
+    p {
+      line-height : 1.5;
+    }
+  }
+  
+}
+
+.history_caption {
+  position       : relative;
+  font           : 36 * $m $museosanscyrl700;
+  line-height    : 1;
+  text-transform : uppercase;
+  letter-spacing : .01em;
+  margin-bottom  : 15 * $m / 2.25;
+  
+  &:before {
+    content      : '';
+    display      : inline-block;
+    margin-left  : -68 * $m / 2.25;
+    width        : 50 * $m / 2.25;
+    height       : 4 * $m / 2.25;
+    margin-right : 18 * $m / 2.25;
+    background   : $gl_red;
+  }
+}
+
+.history_sub_caption {
+  font          : 18 * $m $museosanscyrl700;
+  color         : #474747;
+  margin-bottom : 15 * $m / 1.125;
+}
+
+.actor_sub_caption {
+  font          : 30 * $m $museosanscyrl700;
+  color         : #000;
+  margin-bottom : (14 * $m / 1.875);
+}
+
+.repertoire_block {
+  padding-top : 55 * $m;
+  
+  &:first-of-type {
+    padding-top : 27 * $m;
+  }
+}
+
+.actor_media {
+  padding : 40 * $m 0 175 * $m;
+  
+  @include respond-to-max($tablet) {
+    padding-top : 90 * $m;
+  }
+  
+}
+
+.about_present_slider {
+  margin : (36 * $m) (-1000 * $m) 10 * $m;
+  
+  .swiper-container {
+    width      : 100vw;
+    margin     : 0 auto;
+    min-height : 150px;
+  }
+  
+  @include respond-to-max($tablet) {
+    margin-top    : 0;
+    margin-bottom : 1.5em;
+  }
+}
+
+.present_s_slide {
+  float : left;
+  
+  p {
+    color       : #64646a;
+    font-size   : .75em;
+    max-width   : 45em;
+    padding-top : 6 * $m;
+    line-height : 1.8;
+  }
+}
+
+.about_present_slider_description {
+  position      : relative;
+  padding-left  : 175 * $m;
+  margin-bottom : 14 * $m;
+  min-height    : 50 * $m;
+  
+  .swiper-container {
+    overflow : hidden;
+  }
+  
+  @include respond-to-max($tablet) {
+    padding-left : 190 * $m;
+    min-height   : 65 * $m;
+  }
+}
+
+.about_present_slider_controls {
+  position : absolute;
+  top      : 0;
+  left     : 60 * $m;
+  
+  .swiper_btn {
+    @extend .icon-before;
+    @include transition_all(border .3s, background .3s);
+    float       : left;
+    position    : relative;
+    height      : 50 * $m;
+    width       : 46 * $m;
+    background  : #fff;
+    border      : 1px solid #e73d3d;
+    text-align  : center;
+    margin-left : -1px;
+    
+    &:before {
+      @include transition_all(color .3s);
+      position    : absolute;
+      top         : 0;
+      bottom      : 0;
+      left        : 0;
+      right       : 0;
+      color       : $gl_red;
+      font-weight : bold;
+      font-size   : 20 * $m;
+      line-height : 2.5;
+    }
+    
+    &:hover {
+      background : $gl_red;
+      
+      &:before {
+        color : #fff;
+      }
+    }
+  }
+  
+  .swiper_btn_next {
+    @extend .icon-chevron_right;
+  }
+  
+  .swiper_btn_prev {
+    @extend .icon-chevron_left;
+  }
+  
+  @include respond-to-max($tablet) {
+    left : 1.5em;
+    
+    .swiper_btn {
+      font-size : 1.5em;
+      width     : 3.1em;
+    }
+  }
+  
+}
+
+.people_list {
+  
+  .actor_slide {
+    float : none;
+  }
+  
+  .box {
+    @include transition_all(transform 1s, opacity 1s);
+    @include transform_scale(0);
+    opacity                     : 0;
+    position                    : absolute;
+    margin-bottom               : 18 * $m;
+    -webkit-animation-fill-mode : forwards;
+    animation-fill-mode         : forwards;
+    //width        : 50%;
+    
+    @for $i from 2 through 20 {
+      &:nth-child(#{$i}) {
+        $f : ($i * .15);
+        @include transition_all(transform 1s $f+s, opacity 1s $f+s);
+      }
+    }
+  }
+  
+  .loaded {
+    .box {
+      opacity : 1;
+      @include transform_scale(1);
+    }
+  }
+  
+  @include respond-to-max($tablet) {
+    padding : 0 1.5em;
+  }
+  
+}
+
+.people_filter_list {
+  margin : -10 * $m 0 20 * $m -20 * $m;
+  
+  @include respond-to-max($tablet) {
+    padding : 0 1.5em;
+    margin  : -0.25em 0 2.5em -1.25em;
+  }
+  
+}
+
+.people_filter_item {
+  float        : left;
+  padding-left : 20 * $m;
+  
+  .gl_link {
+    @include transition_all(border-color .3s, color .3s);
+    display         : block;
+    color           : #999;
+    font            : 18 * $m $museosanscyrl700;
+    line-height     : 2;
+    text-decoration : none;
+    text-transform  : uppercase;
+    border-bottom   : 4 * $m solid transparent;
+    
+    &:hover {
+      color : #000;
+    }
+  }
+  
+  &.active .gl_link {
+    cursor              : default;
+    color               : #000;
+    border-bottom-color : $gl_red;
+  }
+}
+
+.vacancy_row {
+  margin-top : 4 * $m;
+  
+  @include respond-to-max($tablet) {
+    padding    : 0 1.5em;
+    margin-top : - 12 * $m;
+    
+    .vacancy_block {
+      font-size : 1.4em;
+      height    : auto;
+      //height    : 482  * $m;
+    }
+  }
+}
+
+.vacancy_block {
+  position      : relative;
+  height        : 450 * $m;
+  margin-bottom : 19 * $m;
+  border        : 1px solid #f2f2f2;
+}
+
+.vacancy_block_inner {
+  position : absolute;
+  bottom   : 0;
+  right    : 0;
+  left     : 0;
+  padding  : 28 * $m 28 * $m 8 * $m;
+  overflow : hidden;
+  
+  p {
+    margin-bottom : 20 * $m;
+    font-size     : 15 * $m;
+    line-height   : 1.35;
+  }
+  
+  @include respond-to-max($tablet) {
+    position : relative;
+    
+    p {
+      //line-height    : 1.45;
+      letter-spacing : .015em;
+      margin-bottom  : 1.35em;
+      font-size      : 18 * $m;
+    }
+  }
+}
+
+.vacancy_name {
+  color         : #000;
+  font          : 19 * $m $museosanscyrl500;
+  margin-bottom : 11 * $m;
+  
+  @include respond-to-max($tablet) {
+    margin-bottom : .9em;
+  }
+}
+
+.vacancy_date {
+  font-size     : 12 * $m;
+  color         : #64646a;
+  margin-bottom : 6 * $m;
+  
+  @include respond-to-max($tablet) {
+    font-size : 18 * $m;
+  }
+}
+
+.go_back_block {
+  @extend %clearfix;
+  margin-bottom : 36 * $m;
+}
+
+.spectacle_actors_list {
+  //@extend %clearfix;
+  //margin-left : -20 * $m;
+  padding-top : 10 * $m;
+  
+  .actor_info {
+    max-height : 160 * $m;
+    overflow   : hidden;
+    
+    p {
+      font-size : .7em;
+    }
+  }
+  
+  @include respond-to-max($tablet) {
+    padding : 45 * $m 50 * $m;
+    margin  : 0 -4.4em;
+  }
+  
+  @include respond-to-min($tablet) {
+    
+    .swiper-container {
+      margin-right : -20 *$m;
+    }
+    
+    .swiper-slide {
+      width         : 50% !important;
+      margin        : 0 0 20 * $m 0 !important;
+      padding-right : 20 * $m;
+    }
+    
+    .swiper-wrapper {
+      width     : auto !important;
+      transform : translate3d(0px, 0px, 0px) !important;
+    }
+    
+  }
+  
+}
+
+.spectacle_actor {
+  padding-left  : 20 * $m;
+  margin-bottom : 20 * $m;
+  
+  .actor_slide {
+    float : none;
+  }
+  
+  @include respond-to-min($tablet) {
+    width : 50%;
+    float : left;
+  }
+  
+}
+
+.spectacle_info {
+  color   : #fff;
+  padding : 25 * $m 0 60 * $m;
+  
+  @include respond-to-max($tablet) {
+    margin         : 0 -3em;
+    padding-bottom : 2.75em;
+    
+    .spectacle_description {
+      margin-right : 16 * $m;
+      padding      : 45 * $m 38 * $m 6em;
+      
+      .spectacle_info_caption {
+        padding-left : 2.5em;
+      }
+    }
+    
+    .spectacle_info_box {
+      line-height    : 2;
+      padding-left   : 2.5em;
+      letter-spacing : -0.04286em;
+    }
+    
+    .spectacle_dates {
+      margin-top  : -2.5em;
+      margin-left : .5em;
+      padding-top : 3em;
+      min-height  : 13.7em;
+      
+      .spectacle_info_caption {
+        margin-bottom : .4em;
+      }
+    }
+  }
+}
+
+.spectacle_info_caption {
+  font          : 20 * $m $museosanscyrl700;
+  margin-bottom : 16 * $m / 1.25;
+}
+
+.spectacle_description {
+  @extend %clearfix;
+  background : #191919;
+  padding    : 30 * $m 38 * $m;
+}
+
+.spectacle_info_box {
+  float          : left;
+  width          : 50%;
+  font-size      : 14 * $m;
+  line-height    : 2.2;
+  letter-spacing : .6 * $m / .875;
+}
+
+.spectacle_dates {
+  background  : $gl_red;
+  padding     : 40 * $m 38 * $m;
+  margin-top  : 30 * $m;
+  margin-left : -40 * $m;
+  min-height  : 15.7em;
+  
+  p {
+    font-size      : 14 * $m;
+    line-height    : 2.2;
+    letter-spacing : .6 * $m / .875;
+  }
+}
+
+.spectacle_info_list {
+  
+  dt {
+    float         : left;
+    clear         : both;
+    padding-right : 5px;
+  }
+  
+}

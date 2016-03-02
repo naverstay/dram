@@ -1,0 +1,40 @@
+include mixins
+doctype html
+html(lang='ru')
+  +dev_head('Dram actor', false, false, true)
+
+  body
+    .wrapper
+      //.rect_1024
+      +header()
+      
+      .base
+        +actor_hero()
+        
+        div.main_content
+          .section_inner
+            .tabBlock(data-tab-context='#filter_list')
+              #filter_tab_1
+                +about_actor()
+              #filter_tab_2
+                .aboutPresentW.actor_media
+                  .about_present_slider
+                    .swiper-container.presentSlider
+                      .swiper-wrapper
+                        +loop_while(3)
+                          .present_s_slide.swiper-slide
+                            .slide_img
+                              img.mob_hidden(src='i/about/about_1.jpg')
+                              img.mob_only(src='i/about/about_1_mob.jpg')
+                  .about_present_slider_description
+                    .about_present_slider_controls
+                      a#about_present_prev.swiper_btn.swiper_btn_prev.noSwipe(href='#')
+                      a#about_present_next.swiper_btn.swiper_btn_next.noSwipe(href='#')
+                    .swiper-container.presentSliderText
+                      .swiper-wrapper
+                        +loop_while(3)
+                          .present_s_slide.swiper-slide
+                            p В рамках фото-проекта "Театральный портрет" - Сергей Черноглазов заслуженный артист РФ Северодвинского драматического театра.
+                
+
+      +footer()

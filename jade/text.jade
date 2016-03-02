@@ -1,0 +1,18 @@
+include mixins
+doctype html
+html(lang='ru')
+  +dev_head('Dram text')
+
+  body
+    .wrapper
+      //.rect_1024
+      +header()
+      
+      .base
+        +text_hero()
+        
+        div.main_content
+          .section_inner
+            +text()
+
+      +footer()

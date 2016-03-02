@@ -1,0 +1,1411 @@
+$gl_green : #2dcda1;
+$gl_blue : #00b1ff;
+$gl_blue_v1 : #24a6df;
+$gl_red : #ff512f;
+
+html, body {
+  height : 100%;
+}
+
+html {
+  overflow-y : scroll;
+  font-size  : 12pt;
+}
+
+body {
+  font       : 1em/1.2 $calibri;
+  color      : $default_t_color;
+  background : #fff;
+
+  @include respond-to-max($desktop) {
+    font-size : .9em;
+
+    .header {
+      font-size   : 1.5em;
+      line-height : 77 * $m;
+      padding-top : 5px;
+    }
+  }
+
+  @include respond-to-max($tablet) {
+    font-size : .7em;
+  }
+
+  @include respond-to-max($mobile) {
+    font-size : .5em;
+  }
+
+}
+
+.hide {
+  display : none !important;
+}
+
+.dt_only {
+  @include respond-to-max($desktop) {
+    display : none !important;
+  }
+}
+
+.dt_hidden {
+  @include respond-to-min($desktop) {
+    display : none !important;
+  }
+}
+
+.mob_only {
+  @include respond-to-min($tablet) {
+    display : none !important;
+  }
+}
+
+.mob_hidden {
+  @include respond-to-max($tablet) {
+    display : none !important;
+  }
+}
+
+.clearfix {
+  @extend %clearfix;
+}
+
+.wrapper {
+  position : relative;
+  height   : 100%;
+
+  @include respond-to-min($desktop) {
+    padding    : 110 * $m 0 0;
+    min-height : 100%;
+    overflow   : hidden;
+    height     : auto;
+  }
+
+  @include respond-to-max($desktop) {
+    padding-top : 8em;
+  }
+
+  .open_menu & {
+    //overflow : hidden;
+  }
+
+}
+
+.base {
+
+  @include respond-to-min($desktop) {
+    padding-bottom : 170 * $m;
+  }
+}
+
+.section_inner {
+  @extend %clearfix;
+  width     : 100%;
+  max-width : 1024 * $m;
+  margin    : 0 auto;
+
+  @include respond-to-max($desktop) {
+    padding : 0 16 * $m;
+  }
+
+  @include respond-to-max($tablet) {
+    padding : 0 48 * $m;
+  }
+
+}
+
+//*************************** header
+
+.header {
+  @extend %translate3d;
+  @include transition_all(box-shadow .3s);
+  position    : fixed;
+  top         : 0;
+  right       : 0;
+  left        : 0;
+  width       : 100vw;
+  max-width   : 100%;
+  z-index     : 2;
+  background  : #fff;
+  line-height : 60 * $m;
+
+  &.sticky_border {
+    box-shadow : 0 0 10 * $m rgba(0, 0, 0, .65);
+  }
+
+  &.sticky {
+    line-height : 50 * $m;
+  }
+
+  @include respond-to-min($desktop) {
+    //position    : absolute;
+    line-height : 110 * $m;
+  }
+}
+
+.logo_block {
+  //@include respond-to-min($desktop) {
+  float    : left;
+  position : relative;
+  z-index  : 1;
+  //}
+}
+
+.logo {
+  @extend .icon-before;
+  @extend .icon-logo;
+  display         : inline-block;
+  vertical-align  : middle;
+  line-height     : normal;
+  position        : relative;
+  padding-left    : 48 * $m;
+  color           : #141414;
+  text-transform  : uppercase;
+  text-decoration : none;
+  letter-spacing  : .9 * $m;
+  font            : 14 * $m $museosanscyrl700;
+
+  &:before {
+    position  : absolute;
+    top       : -2 * $m / 2.6875;
+    left      : -3 * $m / 2.6875;
+    color     : $gl_red;
+    font-size : 43 * $m;
+  }
+
+  @include respond-to-max($desktop) {
+    //font-size    : 10 * $m;
+    //padding-left : 32 * $m;
+    //line-height  : 1.4;
+    //
+    //&:before {
+    //  left      : 0;
+    //  font-size : 28 * $m;
+    //}
+  }
+}
+
+// *********  menu
+
+.main_menu_holder {
+  //@include respond-to-min($desktop) {
+  float : right;
+  //}
+}
+
+.humburger {
+  @extend %translate3d;
+  display        : none;
+  vertical-align : middle;
+  position       : relative;
+  z-index        : 1;
+  font-size      : 1.2em;
+  height         : 46 * $m;
+  width          : 46 * $m;
+  margin-right   : -12 * $m;
+
+  &:after,
+  &:before {
+    @extend %translate3d;
+    @include transition_all(transform .3s, margin .3s, width .3s, bottom .3s, top .3s);
+    content     : '';
+    position    : absolute;
+    width       : 20 * $m;
+    height      : 3px;
+    left        : 50%;
+    background  : $gl_red;
+    margin-left : -10 * $m;
+  }
+
+  &:before {
+    top : 12 * $m;
+
+    .open_menu & {
+      -webkit-transform : rotate(45deg) translate(3 * $m, 1 * $m);
+      -ms-transform     : rotate(45deg) translate(3 * $m, 1 * $m);
+      transform         : rotate(45deg) translate(3 * $m, 1 * $m);
+
+      //@include transform_rotate(45);
+      //margin-left : 0;
+      //width       : 10 * $m;
+      //top         : 17 * $m;
+    }
+  }
+
+  &:after {
+    bottom : 13 * $m;
+
+    .open_menu & {
+      -webkit-transform : rotate(-45deg) translate(11 * $m, -10 * $m);
+      -ms-transform     : rotate(-45deg) translate(11 * $m, -10 * $m);
+      transform         : rotate(-45deg) translate(11 * $m, -10 * $m);
+
+      //@include transform_rotate(-45);
+      //margin-left : 0;
+      //width       : 10 * $m;
+      //bottom      : 18 * $m;
+    }
+  }
+
+  span {
+    @include transition_all(transform .3s, opacity .3s);
+    position   : absolute;
+    top        : 50%;
+    left       : 50%;
+    margin     : -2 * $m 0 0 -10 * $m;
+    background : $gl_red;
+    width      : 20 * $m;
+    height     : 3px;
+
+    .open_menu & {
+      @include transform_scale(0);
+    }
+  }
+
+  @include respond-to-max($desktop) {
+    display : inline-block;
+  }
+
+}
+
+.main_menu_w {
+  @include transition_all(transform .3s);
+
+  @include respond-to-max($desktop) {
+    @include transform_translate(100%, 0);
+    display     : block;
+    position    : fixed;
+    top         : 0;
+    height      : 100vh;
+    padding-top : 4.8125em;
+    left        : 0;
+    right       : 0;
+
+    &:before {
+      content    : '';
+      position   : absolute;
+      top        : 4.8125em;
+      margin-top : 3px;
+      bottom     : 0;
+      left       : 0;
+      right      : 0;
+      background : $gl_red;
+    }
+
+    .sticky & {
+      padding-top : 3.125em;
+
+      &:before {
+        top : 3.125em;
+      }
+    }
+
+    .main_menu {
+      max-height : 100%;
+      overflow-y : auto;
+    }
+
+    .menu_item {
+      &:first-child {
+        margin-top : 3em;
+      }
+    }
+
+    .menu_link {
+      color       : #fff;
+      font-size   : 1.5em;
+      line-height : 1;
+      padding     : .24em 1.2em;
+
+      &:hover,
+      .active & {
+        color : #000;
+      }
+    }
+
+    .open_menu & {
+      @include transform_translate(0, 0);
+    }
+  }
+
+  @include respond-to-max($mobile) {
+    .menu_link {
+      font-size : 2.5em;
+    }
+  }
+}
+
+.menu_item {
+
+  @include respond-to-min($desktop) {
+    float       : left;
+    margin-left : 20 * $m;
+
+    &:first-child {
+      margin-left : 0;
+    }
+  }
+}
+
+.menu_link {
+  @include transition_all(color .3s);
+  cursor          : pointer;
+  position        : relative;
+  display         : block;
+  text-decoration : none;
+  color           : #000;
+  font            : 11 * $m $museosanscyrl700;
+  line-height     : inherit;
+  text-transform  : uppercase;
+
+  &:hover {
+    color : $gl_red;
+  }
+
+}
+
+.link_text {
+  display        : inline-block;
+  vertical-align : middle;
+  line-height    : normal;
+}
+
+  .swiper-wrapper {
+    @extend %clearfix;
+  }
+
+//************ content
+
+.main_slider {
+  overflow  : hidden;
+  max-width : 100%;
+  position  : relative;
+
+  .swiper-wrapper {
+    @extend %clearfix;
+  }
+
+  .swiper-pagination {
+    text-align : center;
+    position   : absolute;
+    bottom     : 0;
+    right      : 0;
+    left       : 0;
+
+    @include respond-to-min($desktop) {
+      bottom : 20 * $m;
+    }
+
+    @include respond-to-max($tablet) {
+      bottom : 36 * $m;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    display        : inline-block;
+    vertical-align : top;
+    position       : relative;
+    width          : 39 * $m;
+    height         : 36 * $m;
+    margin         : 0 5px;
+    cursor         : pointer;
+
+    &:before {
+      @include transition_all(background-color .3s);
+      content    : '';
+      position   : absolute;
+      right      : 0;
+      left       : 0;
+      height     : 5px;
+      top        : 15 * $m;
+      background : #fff;
+    }
+
+    &.swiper-pagination-bullet-active:before {
+      background : $gl_red;
+    }
+
+    @include respond-to-max($tablet) {
+      width : 55 * $m;
+
+      &:before {
+        height : 4px;
+      }
+    }
+  }
+
+}
+
+.main_s_slide {
+  position : relative;
+  float    : left;
+}
+
+.abs_holder {
+  position : absolute;
+  top      : 0;
+  bottom   : 0;
+  left     : 0;
+  right    : 0;
+}
+
+.gl_table {
+  display : table;
+  width   : 100%;
+  height  : 100%;
+}
+
+.gl_table_cell {
+  display        : table-cell;
+  vertical-align : middle;
+}
+
+.slide_content {
+  position   : relative;
+  text-align : left;
+
+  @include respond-to-min($tablet) {
+    .section_inner {
+      padding-bottom : 35 * $m;
+    }
+  }
+
+  @include respond-to-max($tablet) {
+    padding : 0 1.4em 3em;
+  }
+}
+
+.slide_img {
+  position   : relative;
+  text-align : center;
+
+  img {
+    display        : inline-block;
+    vertical-align : top;
+    max-width      : 100%;
+  }
+}
+
+.event_date {
+  display        : inline-block;
+  vertical-align : top;
+  background     : $gl_red;
+  padding        : (7 * $m / .75) (12 * $m / .75);
+  font-size      : 12 * $m;
+  color          : #fff;
+  margin         : 25 * $m 0 25 * $m;
+
+  @include respond-to-max($tablet) {
+    margin-bottom : 2.5em;
+  }
+
+}
+
+.event_name {
+  font           : (56 * $m) $museosanscyrl700;
+  line-height    : 1.18;
+  color          : #fff;
+  letter-spacing : 1px;
+  text-transform : uppercase;
+  margin-bottom  : 7px;
+  max-height     : 3em * 1.18;
+  overflow       : hidden;
+
+  @include respond-to-max($tablet) {
+    letter-spacing : 3px;
+    margin-bottom  : -3px;
+  }
+
+}
+
+.event_info {
+  font          : (16 * $m) $museosanscyrl300;
+  line-height   : 1.875;
+  color         : #fff;
+  margin-bottom : 30 * $m;
+  max-height    : 4em * 1.875;
+  overflow      : hidden;
+
+  @include respond-to-max($tablet) {
+    margin-bottom : 16 * $m;
+  }
+
+  @include respond-to-min($desktop) {
+    max-width : 500 * $m;
+  }
+}
+
+.poster_table {
+  padding : 0 1.5em;
+
+  @include respond-to-min($tablet) {
+    display      : table;
+    padding      : 0;
+    width        : 100%;
+    height       : 100%;
+    table-layout : fixed;
+
+    .poster_unit {
+      display        : table-cell;
+      vertical-align : top;
+      height         : 100%;
+      float          : none;
+    }
+
+    .poster_block {
+      height : 100%;
+    }
+  }
+}
+
+.poster_unit {
+  @include respond-to-max($tablet) {
+    margin-top : 30 * $m;
+
+    &:first-child {
+      margin-top : 0;
+    }
+  }
+}
+
+.poster_cell {
+  height     : 100%;
+  background : #fff;
+  border     : 1px solid #f3f3f3;
+
+  @include respond-to-max($tablet) {
+    font-size : 1.5em;
+  }
+}
+
+.poster_block {
+  padding : 22 * $m 32 * $m;
+
+  p {
+    font-size  : 15 * $m;
+    color      : #64646a;
+    margin-top : 9 * $m;
+  }
+
+  @include respond-to-min($tablet) {
+    padding : 30 * $m 28 * $m 10 * $m;
+
+    p {
+      margin-top : 12 * $m;
+    }
+  }
+}
+
+.poster_slider {
+  overflow       : hidden;
+  max-width      : 100%;
+  padding-bottom : 50 * $m;
+  position       : relative;
+
+  .swiper-wrapper {
+    @extend %clearfix;
+  }
+
+  .swiper-pagination {
+    text-align : left;
+    position   : absolute;
+    bottom     : 0;
+    right      : 0;
+    left       : -11 * $m;
+  }
+
+  .swiper-pagination-bullet {
+    display        : inline-block;
+    vertical-align : top;
+    position       : relative;
+    width          : 39 * $m;
+    height         : 36 * $m;
+    margin         : 0 0 5px 11 * $m;
+    cursor         : pointer;
+
+    &:before {
+      @include transition_all(background-color .3s);
+      content    : '';
+      position   : absolute;
+      right      : 0;
+      left       : 0;
+      height     : 5px;
+      top        : 15 * $m;
+      background : #d0d0d2;
+    }
+
+    &.swiper-pagination-bullet-active:before {
+      background : $gl_red;
+    }
+  }
+
+  @include respond-to-min($tablet) {
+    min-height : 365 * $m;
+  }
+
+  @include respond-to-max($tablet) {
+    //padding-bottom : 6em;
+    min-height : 22.5em;
+
+    .swiper-pagination-bullet {
+
+      &:before {
+        height : 4px;
+      }
+    }
+  }
+}
+
+.poster_slide {
+  float : left;
+}
+
+.poster_section {
+  position    : relative;
+  z-index     : 1;
+  padding-top : 70 * $m;
+
+  @include respond-to-max($tablet) {
+    padding-top : 38 * $m;
+  }
+
+}
+
+.poster_title_holder {
+  font           : 19 * $m $museosanscyrl700;
+  text-transform : uppercase;
+  margin-bottom  : 23 * $m / 1.1875;
+  letter-spacing : 1px;
+
+  .poster_title {
+    display : inline;
+  }
+
+  .gl_link {
+    color           : inherit;
+    text-decoration : underline;
+
+    &:hover {
+      text-decoration : none;
+    }
+  }
+}
+
+.poster_item {
+  border-top : 1px solid #d0d0d2;
+  padding    : 16 * $m 0 12 * $m;
+
+  &:before {
+    border-top : none;
+  }
+
+  &:first-child {
+    padding-top : 3px;
+  }
+
+}
+
+.work_time {
+  @extend %clearfix;
+  font-size : 15 * $m;
+  color     : #64646a;
+
+  dt, dd {
+    margin-top : 6px;
+  }
+
+  dt {
+    clear : both;
+    float : left;
+    width : 60%;
+  }
+
+  dd {
+    float     : right;
+    max-width : 40%;
+  }
+
+}
+
+.poster_date {
+  color         : #64646a;
+  font-size     : 12 * $m;
+  margin-bottom : 3px;
+}
+
+.poster_title {
+  color : #000;
+  //font  : 19 * $m $museosanscyrl700;
+
+  .gl_link {
+    color           : inherit;
+    text-decoration : none;
+
+    &:hover {
+      color : $gl_red;
+    }
+  }
+}
+
+.poster_caption {
+  color : #000;
+  font  : 19 * $m $museosanscyrl500;
+
+  .contacts_block & {
+    margin-top : 12 * $m;
+  }
+
+  .gl_link {
+    color           : inherit;
+    text-decoration : none;
+
+    &:hover {
+      color : $gl_red;
+    }
+  }
+}
+
+.visitors_section {
+  position    : relative;
+  margin-top  : -50 * $m;
+  min-height  : 590 * $m;
+  padding-top : 115 * $m;
+  background  : url(../i/visitors.jpg) no-repeat 50% 0;
+
+  @include respond-to-max($tablet) {
+    padding-top : 100 * $m;
+    min-height  : 688 * $m;
+  }
+}
+
+.actors_section {
+  padding-top : 70 * $m;
+}
+
+.visitors_item {
+  height         : 100%;
+  vertical-align : middle;
+
+  @include respond-to-min($tablet) {
+    padding-top : 35 * $m;
+  }
+}
+
+.visitor_box {
+  position   : relative;
+  height     : 100%;
+  min-height : 175 * $m;
+  margin     : 15 * $m 0;
+
+  &:before {
+    content    : '';
+    position   : absolute;
+    left       : 0;
+    width      : 1px;
+    background : rgba(226, 226, 226, .5);
+    top        : 50%;
+  }
+
+  &.visitor_box_2 {
+    &:before {
+      height     : 190 * $m;
+      margin-top : -95 * $m;
+    }
+  }
+
+  &.visitor_box_3 {
+    &:before {
+      height     : 226 * $m;
+      margin-top : -113 * $m;
+    }
+  }
+
+  &.visitor_box_4 {
+    &:before {
+      height     : 250 * $m;
+      margin-top : -125 * $m;
+    }
+  }
+
+  &.visitor_box_5 {
+    &:before {
+      height     : 226 * $m;
+      margin-top : -113 * $m;
+    }
+  }
+
+  &.visitor_box_6 {
+    &:before {
+      height     : 190 * $m;
+      margin-top : -95 * $m;
+    }
+  }
+
+  .gl_link {
+    color           : #fff;
+    font            : 12 * $m $museosanscyrl500;
+    line-height     : 3;
+    text-decoration : none;
+    text-transform  : uppercase;
+    letter-spacing  : .5px;
+
+    span {
+      display        : inline-block;
+      vertical-align : middle;
+      line-height    : 24 * $m;
+    }
+
+    &:hover {
+      color : $gl_red;
+    }
+  }
+
+  @include respond-to-min($tablet) {
+    min-height : 190 * $m;
+
+    .gl_link {
+
+      span {
+        line-height : 18 * $m;
+      }
+    }
+  }
+}
+
+$w : 100%/6;
+
+.visitors_list {
+  @extend %clearfix;
+  text-align : center;
+
+  li {
+    float : left;
+    width : $w;
+  }
+
+  @include respond-to-max($tablet) {
+    //padding-bottom : 6em;
+
+    li {
+      width : 33.33%;
+
+      &:first-child {
+        .visitor_box {
+          &:before {
+            display : none;
+          }
+        }
+      }
+    }
+
+    .visitor_box {
+      &:before {
+        height     : 12em;
+        margin-top : -6em;
+      }
+
+      &.visitor_box_4 {
+        &:before {
+          display : none;
+        }
+      }
+    }
+  }
+}
+
+.visitors_icon {
+  position   : relative;
+  color      : $gl_red;
+  text-align : center;
+  height     : 120 * $m;
+
+  &:before {
+    position    : absolute;
+    top         : 0;
+    width       : 120 * $m / 5.1875;
+    height      : 120 * $m / 5.1875;
+    line-height : 1.5;
+    left        : 50%;
+    margin-left : -60 * $m / 5.1875;
+    font-size   : 83 * $m;
+  }
+
+  &.icon-coffee {
+    &:before {
+      //margin-top : -10 * $m;
+    }
+  }
+
+  @include respond-to-min($tablet) {
+    margin-bottom : 15 * $m;
+  }
+}
+
+.visitors_splitter {
+  height     : 1px;
+  background : rgba(226, 226, 226, .5);
+  min-width  : 100% !important;
+  margin     : (6 * $m) (-10 * $m);
+
+  @include respond-to-min($tablet) {
+    display : none;
+  }
+}
+
+.event_controls {
+  @extend %clearfix;
+  margin-left : -21 * $m;
+
+  li {
+    padding-left : 21 * $m;
+    float        : left;
+  }
+
+  @include respond-to-max($tablet) {
+    font-size   : 1.5em;
+    margin-left : -7 * $m;
+
+    li {
+      padding-left : 7 * $m;
+
+      .slide_btn {
+        padding-left  : 1.9em;
+        padding-right : 1.9em;
+      }
+    }
+  }
+}
+
+.actor_slider {
+  overflow      : hidden;
+  margin-bottom : 16 * $m;
+  position      : relative;
+
+  .swiper-wrapper {
+    @extend %clearfix;
+  }
+
+  @include respond-to-max($mobile) {
+    padding : 0 72 * $m;
+    margin  : 0 -48 * $m;
+  }
+
+}
+
+.actor_slide {
+  float : left;
+}
+
+.actor_photo {
+  @extend .icon-before;
+  @extend .icon-arrow_right;
+  position        : relative;
+  display         : block;
+  text-decoration : none;
+
+  &:after {
+    @include transition_all(opacity .3s);
+    content    : '';
+    position   : absolute;
+    top        : 0;
+    bottom     : 0;
+    left       : 0;
+    right      : 0;
+    opacity    : 0;
+    background : $gl_red;
+  }
+
+  &:before {
+    @include transition_all(opacity .3s);
+    position  : absolute;
+    left      : 32 * $m / 3.125;
+    bottom    : 27 * $m / 3.125;
+    color     : #fff;
+    font-size : 50 * $m;
+    z-index   : 1;
+    opacity   : 0;
+  }
+
+  img {
+    display : block;
+    width   : 100%;
+  }
+
+  .actor_slide:hover & {
+    &:after {
+      opacity : .8;
+    }
+
+    &:before {
+      opacity : 1;
+    }
+  }
+}
+
+.actor_info {
+  padding    : 16 * $m 30 * $m 14.5 * $m;
+  border     : 1px solid #f3f3f3;
+  border-top : none;
+
+  p {
+    color         : #64646a;
+    font-size     : 12 * $m;
+    margin-bottom : 10 * $m;
+    line-height   : 1.7;
+  }
+
+  @include respond-to-max($mobile) {
+    font-size : 1.5em;
+  }
+}
+
+.actor_name {
+  @include transition_all(color .3s);
+  display         : inline-block;
+  vertical-align  : top;
+  font            : 19 * $m $museosanscyrl700;
+  color           : #000;
+  text-transform  : uppercase;
+  margin-bottom   : 14 * $m;
+  letter-spacing  : 1px;
+  text-decoration : none;
+
+  .actor_slide:hover & {
+    color : $gl_red;
+  }
+
+}
+
+.more_btn_holder {
+  text-align    : center;
+  margin-bottom : 80 * $m;
+
+  @include respond-to-max($tablet) {
+
+    .btn_v1.poster_btn {
+      font-size : 1.2em;
+      margin    : 1.5em 0 .5em;
+    }
+  }
+}
+
+//************  buttons
+
+.btn_v1 {
+  height : 67 * $m;
+
+  &.slide_btn {
+    display         : block;
+    text-decoration : none;
+    cursor          : pointer;
+    text-transform  : uppercase;
+    font            : 12 * $m $museosanscyrl700;
+    line-height     : 1.5;
+    padding         : (15 * $m / .75) (27 * $m);
+    letter-spacing  : .5px;
+  }
+
+  &.poster_btn {
+    display         : inline-block;
+    vertical-align  : top;
+    text-decoration : none;
+    cursor          : pointer;
+    text-transform  : uppercase;
+    margin-top      : 20 * $m;
+    font            : 12 * $m $museosanscyrl700;
+    line-height     : 1.5;
+    padding         : (15 * $m / .75) 27 * $m;
+    letter-spacing  : .5px;
+
+    @include respond-to-max($tablet) {
+      margin : 3em 0 .5em;
+    }
+  }
+}
+
+.red_btn {
+  @include transition_all(background .3s);
+  color      : #fff;
+  background : transparent;
+  border     : 1px solid #fa502e;
+
+  &:hover {
+    background : $gl_red;
+  }
+}
+
+.red_red_btn {
+  @include transition_all(background .3s, color .3s);
+  color      : $gl_red;
+  background : transparent;
+  border     : 1px solid #fa502e;
+
+  &:hover {
+    color      : #fff;
+    background : $gl_red;
+  }
+}
+
+// **********  text
+
+.gl_link {
+  @include transition_all(color .3s);
+}
+
+.section_title {
+  font           : 40 * $m $museosanscyrl700;
+  text-transform : uppercase;
+  margin-bottom  : 33 * $m / 2.5;
+  color          : #000;
+  letter-spacing : 2px;
+
+  .visitors_section & {
+    color : #fff;
+  }
+
+  @include respond-to-max($tablet) {
+    letter-spacing : 1px;
+  }
+}
+
+.text_center {
+  text-align : center;
+}
+
+.text_right {
+  text-align : right;
+}
+
+.text_left {
+  text-align : left;
+}
+
+.text_upper {
+  text-transform : uppercase;
+}
+
+.color_red {
+  color : $gl_red;
+}
+
+$rectWidth : 1024 * $m;
+
+.rect_1024 {
+  position       : absolute;
+  top            : 0;
+  left           : 50%;
+  margin-left    : -$rectWidth/2;
+  width          : $rectWidth;
+  bottom         : 0;
+  border         : 1px solid red;
+  z-index        : 10;
+  pointer-events : none;
+}
+
+.rect_1024:after {
+  content    : '';
+  position   : absolute;
+  top        : 0;
+  bottom     : 0;
+  left       : $rectWidth/2;
+  width      : 1px;
+  background : red;
+}
+
+.footer {
+  padding     : 40 * $m 8 * $m 1em;
+  background  : #f2f2f2;
+  color       : #000;
+  font-family : $museosanscyrl500;
+
+  @include respond-to-min($desktop) {
+    position : absolute;
+    bottom   : 0;
+    right    : 0;
+    left     : 0;
+    height   : 170 * $m;
+  }
+
+  @include respond-to-max($tablet) {
+    .section_inner {
+      font-size : 1.3em;
+    }
+  }
+
+}
+
+.copyright {
+  @extend .icon-before;
+  @extend .icon-logo;
+  float        : left;
+  position     : relative;
+  padding-left : 44 * $m;
+  line-height  : 1.7;
+  min-height   : 16 * $m;
+
+  &:before {
+    position  : absolute;
+    color     : #999;
+    font-size : 38 * $m;
+    top       : 0;
+    left      : -3px;
+  }
+
+  @include respond-to-max($tablet) {
+    margin-top    : 5 * $m;
+    margin-bottom : 1em;
+    line-height   : 2.5;
+    min-height    : 3em;
+
+    //float         : none;
+    //padding-left  : 35 * $m;
+    //font-size     : 7px;
+    //margin-bottom : 16 * $m;
+    //line-height   : 18 * $m;
+    //
+    //&:before {
+    //  font-size : 28 * $m;
+    //}
+  }
+
+}
+
+.copyright_text {
+  display        : inline-block;
+  vertical-align : middle;
+  font-size      : 12 * $m;
+  line-height    : 1.75;
+
+  @include respond-to-min($desktop) {
+    min-width : 250px;
+  }
+
+}
+
+.partners_list {
+  @extend %clearfix;
+  float       : right;
+  margin-left : -10 * $m;
+
+  li {
+    float        : left;
+    padding-left : 10 * $m;
+    max-width    : 20em;
+
+    &:first-child {
+      padding-right : 15 * $m;
+      max-width     : none;
+
+      @include respond-to-max($desktop) {
+        float         : none;
+        margin-bottom : 1em;
+      }
+    }
+
+    p {
+      font-size : 12 * $m;
+      opacity   : .8;
+    }
+
+  }
+
+  @include respond-to-max($tablet) {
+    float    : none;
+    overflow : hidden;
+
+    li {
+      width         : 50%;
+      margin-bottom : 25 * $m;
+      font-size     : .7em;
+
+      .partner_box {
+        padding    : 36 * $m 10 * $m 10 * $m 96 * $m;
+        min-height : 104 * $m;
+
+        &.partner_government {
+
+          &:before {
+            font-size   : 65 * $m;
+            line-height : 1.4 !important;
+          }
+        }
+
+        &.partner_milana {
+
+          &:before {
+            font-size   : 95 * $m;
+            line-height : 1.1 !important;
+          }
+        }
+
+        &:before {
+          //font-size   : 35 * $m;
+          //width       : 40 * $m;
+          //height      : 50 * $m;
+          //line-height : 1.43 !important;
+        }
+      }
+
+      p {
+        font-size : 14 * $m;
+      }
+    }
+  }
+}
+
+.partner_box {
+  position   : relative;
+  background : #fff;
+  padding    : 28 * $m 15 * $m 10 * $m 78 * $m;
+  min-height : 84 * $m;
+
+  &:before {
+    position   : absolute;
+    left       : 0;
+    top        : 0;
+    //width       : 78 * $m;
+    //height      : 84 * $m;
+    //line-height : 1.68 !important;
+    text-align : center;
+    color      : #1a1a1a;
+    opacity    : .5;
+  }
+
+  &.partner_government {
+    @extend .icon-before;
+    @extend .icon-government;
+
+    &:before {
+      font-size   : 50 * $m;
+      width       : 1.6em;
+      height      : 1.7em;
+      line-height : 1.68 !important;
+    }
+  }
+
+  &.partner_milana {
+    @extend .icon-before;
+    @extend .icon-milana;
+
+    &:before {
+      font-size   : 75 * $m;
+      height      : 1.12em;
+      width       : 1.04em;
+      line-height : 1.1 !important;
+    }
+  }
+}
+
+// to do dev only 
+
+#chromeperfectpixel-panel {
+  max-width : 100vw !important;
+  left      : 0 !important;
+  top       : 38px !important;
+
+  &.collapsed {
+    right   : auto !important;
+    bottom  : auto !important;
+    display : block !important;
+  }
+
+}
